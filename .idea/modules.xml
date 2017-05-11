@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/WebDroid.iml" filepath="$PROJECT_DIR$/WebDroid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/server.iml" filepath="$PROJECT_DIR$/server/server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webdroidserver/webdroidserver.iml" filepath="$PROJECT_DIR$/webdroidserver/webdroidserver.iml" />
     </modules>
   </component>
 </project>

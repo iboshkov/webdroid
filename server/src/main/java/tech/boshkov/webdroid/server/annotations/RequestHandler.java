@@ -10,5 +10,6 @@ import java.lang.annotation.Target;
 public @interface RequestHandler {
 
     public String route() default "/";
+    public String[] methods() default { "GET" };
 
 }
