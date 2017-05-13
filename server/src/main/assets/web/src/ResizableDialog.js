@@ -3,7 +3,6 @@ import './app.css';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 
-console.log("WTF", Rnd);
 // or just take everything!
 import * as Blueprint from "@blueprintjs/core";
 import { Dialog, Button, Intent, Position, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
@@ -117,8 +116,8 @@ class ResizableDialog extends Component {
               </div>
             </nav>
 
-            <div style={{height: "100%"}} className="pt-dialog-content grid without-overflow">
-              <div  className="grid__col grid__col--1-of-3 with-overflow">
+            <div style={{height: "100%"}} className="without-overflow">
+              <div  className="sm-col sm-col-3 border with-overflow sidebar">
                 <Menu>
                   <MenuItem
                     iconName="new-text-box"
@@ -146,7 +145,7 @@ class ResizableDialog extends Component {
                   className={Classes.ELEVATION_0}
                 />
               </div>
-              <div className="grid__col grid__col--2-of-3 with-overflow">
+              <div className="sm-col sm-col-9  with-overflow">
                 {this.props.children}
               </div>
             </div>

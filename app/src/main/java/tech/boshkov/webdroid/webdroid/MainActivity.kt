@@ -24,13 +24,15 @@ import tech.boshkov.webdroid.server.interfaces.WebApplication
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.BatteryManager
+import android.os.Environment
 import com.github.salomonbrys.kotson.*
 import com.google.gson.JsonObject
+import java.io.File
 
 
 class MainActivity : AppCompatActivity(), WebApplication {
     internal lateinit var server: WebServer
-    internal lateinit var batteryStatus : Intent
+    internal lateinit var batteryStatus: Intent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -90,11 +92,82 @@ class MainActivity : AppCompatActivity(), WebApplication {
                 "product" to android.os.Build.PRODUCT,
                 "host" to android.os.Build.HOST,
                 "os" to jsonObject(
-                    "base_os" to android.os.Build.VERSION.BASE_OS,
-                    "release" to android.os.Build.VERSION.RELEASE,
-                    "incremental" to android.os.Build.VERSION.INCREMENTAL,
-                    "codename" to android.os.Build.VERSION.CODENAME
+                        "base_os" to android.os.Build.VERSION.BASE_OS,
+                        "release" to android.os.Build.VERSION.RELEASE,
+                        "incremental" to android.os.Build.VERSION.INCREMENTAL,
+                        "codename" to android.os.Build.VERSION.CODENAME
                 )
+        )
+        var response = NanoHTTPD.newFixedLengthResponse(obj.toString())
+        response.mimeType = "application/json";
+        return response;
+    }
+
+    @RequestHandler(route = "/post/", methods = arrayOf("POST"))
+    fun testPost(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
+
+        println("Path: $additionalPath")
+        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
+        var path = File(fsFile, additionalPath)
+        var len : Long = 0
+        var str = path.inputStream().use {
+            it.bufferedReader().use {
+                while (it.read() > 0) {len++}
+            }
+        }
+        var response = NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.OK, "application/octet-stream", path.inputStream(), len)
+        return response;
+    }
+
+
+    @RequestHandler(route = "/rest/filesystem/serve/")
+    fun downloadResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
+
+        println("Path: $additionalPath")
+        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
+        var path = File(fsFile, additionalPath)
+        if (!path.exists()) {
+            return server.notFoundResponse;
+        }
+
+        var fileName = path.name;
+
+        var mime = NanoHTTPD.getMimeTypeForFile(path.absolutePath)
+
+        var response = NanoHTTPD.newChunkedResponse(NanoHTTPD.Response.Status.OK, mime, path.inputStream())
+        response.addHeader("Content-disposition", "attachement; filename=$fileName")
+
+        return response;
+    }
+
+    @RequestHandler(route = "/rest/filesystem/list/")
+    fun fileSystemList(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
+        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
+
+        println("Path: $additionalPath")
+        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
+        var path = File(fsFile, additionalPath)
+        println("Serving $path")
+        if (!path.exists()) {
+            return server.notFoundResponse;
+        }
+
+        var fileList = path.list().map {
+            val f = File(path, it.toString())
+            jsonObject(
+                    "name" to f.name,
+                    "path" to f.path,
+                    "absolutePath" to f.absolutePath,
+                    "cannonicalPath" to f.canonicalPath,
+                    "isDirectory" to f.isDirectory,
+                    "isFile" to f.isFile
+            )
+        }
+
+        val obj: JsonObject = jsonObject(
+                "files" to jsonArray(fileList)
         )
 
         var response = NanoHTTPD.newFixedLengthResponse(obj.toString())

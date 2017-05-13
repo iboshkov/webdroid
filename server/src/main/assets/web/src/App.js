@@ -4,6 +4,7 @@ import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import ResizableDialog from './ResizableDialog';
 import PhoneStatusWidget from './PhoneStatusWidget';
+import FileExplorer from './FileExplorer';
 
 import { Dialog, Button, Intent, Menu, MenuItem, MenuDivider, Position, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 
@@ -41,6 +42,7 @@ class App extends Component {
           </nav>
         </div>
         <PhoneStatusWidget />
+        <FileExplorer />
         <ResizableDialog>
           <div className="grid-container">
 

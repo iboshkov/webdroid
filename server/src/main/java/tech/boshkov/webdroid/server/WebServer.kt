@@ -108,7 +108,6 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
         return null
     }
 
-
     override fun serve(session: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
         val header = session.headers
         val parms = session.parms
@@ -212,15 +211,15 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
     }
 
 
-    protected fun getForbiddenResponse(s: String): NanoHTTPD.Response {
+    public fun getForbiddenResponse(s: String): NanoHTTPD.Response {
         return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.FORBIDDEN, NanoHTTPD.MIME_PLAINTEXT, "FORBIDDEN: " + s)
     }
 
-    protected fun getInternalErrorResponse(s: String): NanoHTTPD.Response {
+    public fun getInternalErrorResponse(s: String): NanoHTTPD.Response {
         return NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.INTERNAL_ERROR, NanoHTTPD.MIME_PLAINTEXT, "INTERNAL ERROR: " + s)
     }
 
-    protected val notFoundResponse: NanoHTTPD.Response
+    public val notFoundResponse: NanoHTTPD.Response
         get() = NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.NOT_FOUND, NanoHTTPD.MIME_PLAINTEXT, "Error 404, file not found.")
 
     override fun run() {
