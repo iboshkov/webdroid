@@ -43,7 +43,7 @@ class App extends Component {
         </div>
         <PhoneStatusWidget />
         <FileExplorer />
-        <ResizableDialog>
+        {/*<ResizableDialog>
           <div className="grid-container">
 
             {this.nodes.map(node => {
@@ -64,7 +64,7 @@ class App extends Component {
 
           </div>
 
-        </ResizableDialog>
+        </ResizableDialog>*/}
       </div>
     );
   }

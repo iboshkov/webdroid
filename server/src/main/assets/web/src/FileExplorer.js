@@ -4,8 +4,8 @@ import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import * as path from 'path';
 import * as Blueprint from "@blueprintjs/core";
-import { SelectableGroup, createSelectable } from 'react-selectable';
-
+import Selection from './Selection/Selection'
+import LazyLoad from 'react-lazy-load';
 import { Dialog, Button, Intent, Position, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 class FileExplorer extends Component {
   constructor(props) {
@@ -58,15 +58,15 @@ class FileExplorer extends Component {
   }
 
   fetchList(currentPath) {
-    this.setState({isLoading: true});
+    this.setState({ isLoading: true });
     fetch(`http://localhost:3000/rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
       data => {
         console.log(`Got files for currentPath ${currentPath}`)
         console.log(data)
-        this.setState({files: data.files, isLoading: false})
+        this.setState({ files: data.files, isLoading: false })
       }
     ).catch(err => {
-      this.setState({isLoading: false});
+      this.setState({ isLoading: false });
       console.error("Error fetching file list");
     })
   }
@@ -104,38 +104,38 @@ class FileExplorer extends Component {
     }
   }
 
-  navigateAbsolute(to, _toBackStack=true, nukeForwardStack=false) {
+  navigateAbsolute(to, _toBackStack = true, nukeForwardStack = false) {
     let backStack = this.state.backStack;
-    
+
     if (_toBackStack) {
       backStack.push(to);
       console.log("Changing backstack", backStack);
     }
-    
+
     if (nukeForwardStack) {
-      this.setState({forwardStack: []})
+      this.setState({ forwardStack: [] })
     }
 
     this.setState({ backStack, currentPath: to });
-    
+
     this.fetchList(to);
   }
 
   navigateBack() {
-    let {backStack, forwardStack, currentPath} = this.state;
+    let { backStack, forwardStack, currentPath } = this.state;
     console.log("Backstack", backStack);
     let prev = backStack.pop();
     forwardStack.push(prev)
-    prev = backStack[backStack.length-1]
+    prev = backStack[backStack.length - 1]
     this.navigateAbsolute(prev, false);
     console.log("going to ", prev);
     console.log("Backstack", backStack);
-    this.setState({backStack, forwardStack});
+    this.setState({ backStack, forwardStack });
   }
 
   navigateForward() {
-    let {forwardStack} = this.state;
-    
+    let { forwardStack } = this.state;
+
     console.log(forwardStack);
     let prev = forwardStack.pop();
     this.navigateAbsolute(prev);
@@ -159,14 +159,29 @@ class FileExplorer extends Component {
     this.fetchList(this.state.currentPath);
   }
 
+  afterSelect(selectedTargets ) {
+      const hasSelected = selectedTargets.length
+      selectedTargets.forEach(target => {
+        console.log(target.getAttribute("data-path"))
+      });
+  }
+
+  isImage(path) {
+    const extensions = [".jpg", ".png", ".gif"]
+    for (let ext of extensions) {
+      if (path.endsWith(ext)) return true;
+    }
+    return false;
+  }
+
   render() {
-    let {files} = this.state;
+    let { files } = this.state;
     let wholePath = this.state.currentPath;
     let crumbs = ["/", ...wholePath.split(path.sep).filter(str => str !== "")];
     let crumbsWhole = crumbs;
     let refreshClass = "";
     crumbs = crumbs.map((p, i) => {
-      let parts = crumbsWhole.slice(0, i+1)
+      let parts = crumbsWhole.slice(0, i + 1)
       return {
         name: p,
         parts,
@@ -199,7 +214,7 @@ class FileExplorer extends Component {
             <div className="pt-navbar-group pt-align-left">
               <div className="pt-navbar-heading">WebDroid</div>
               <input className="pt-input" placeholder="Search files..." type="text" />
-            
+
             </div>
             <div className="pt-navbar-group pt-align-right">
               <button className="pt-button pt-minimal pt-icon-home">Home</button>
@@ -215,7 +230,7 @@ class FileExplorer extends Component {
               <Button disabled={this.state.backStack.length <= 1} onClick={this.navigateBack.bind(this)} className="pt-button pt-minimal pt-icon-arrow-left"></Button>
               <Button disabled={this.state.forwardStack.length == 0} onClick={this.navigateForward.bind(this)} className="pt-button pt-minimal pt-icon-arrow-right"></Button>
               <Button disabled={this.state.isLoading} onClick={this.refresh.bind(this)} className="pt-button pt-minimal pt-icon-refresh"></Button>
-              {this.state.isLoading && <Spinner className="pt-small" />}              
+              {this.state.isLoading && <Spinner className="pt-small" />}
             </div>
             <div className="explorer-breadcrumbs pt-navbar-group pt-align-left">
               <ul className="pt-breadcrumbs">
@@ -268,36 +283,47 @@ class FileExplorer extends Component {
             </div>
             <div className="sm-col sm-col-9  with-overflow">
               {this.props.children}
-                        <div className="grid-container">
+              <Selection target=".target" afterSelect={this.afterSelect}>
+              
+              <div className="grid-container">
 
-              {!this.state.isLoading && files.map(node => {
-                let icon = node.isDirectory ? "folder-close" : "document";
-                let p = node.name;
-                return (
-                  <div onClick={() => node.isDirectory && this.navigateRelative(p)} className="grid-card pt-card pt-elevation-0 pt-interactive">
-                    <span className={`pt-icon-large pt-icon-${icon} explorer-icon pt-intent-primary`} />
-                    <Text className="explorer card filename">
-                      {node.name}
-                    </Text>       
-                    <nav className=" .modifier">
-                      <div className="pt-navbar-group pt-align-left">
-                        <Tooltip content="Click to download!" position={Position.RIGHT}><a target="_blank" href={this.download(node)} className="pt-button pt-minimal pt-icon-download"></a></Tooltip>
+                  {!this.state.isLoading && files.map(node => {
+                    let icon = node.isDirectory ? "folder-close" : "document";
+                    let p = node.name;
+                    let isImage = this.isImage(p);
+                    return (
+                      <div data-path={this.relativePath(p)} onClick={() => node.isDirectory && this.navigateRelative(p)} className="grid-card target pt-card pt-elevation-0 pt-interactive">
+                        {isImage ? (
+                          <LazyLoad >
+                            <img src={this.download(node)} />
+                          </LazyLoad>
+                        ): (
+                          <span className={`pt-icon-large pt-icon-${icon} explorer-icon pt-intent-primary`} />
+                        )}
+
+                        <Text className="explorer card filename">
+                          {node.name}
+                        </Text>
+                        <nav className=" .modifier">
+                          <div className="pt-navbar-group pt-align-left">
+                            <Tooltip content="Click to download!" position={Position.RIGHT}><a target="_blank" href={this.download(node)} className="pt-button pt-minimal pt-icon-download"></a></Tooltip>
+                          </div>
+
+                          <div className="pt-navbar-group pt-align-right">
+                            <Tooltip content="Click to delete" position={Position.RIGHT}><button className="pt-button pt-minimal pt-icon-trash"></button></Tooltip>
+                          </div>
+                        </nav>
                       </div>
-               
-                      <div className="pt-navbar-group pt-align-right">
-                        <Tooltip content="Click to delete" position={Position.RIGHT}><button className="pt-button pt-minimal pt-icon-trash"></button></Tooltip>
-                      </div>
-                    </nav>
-                  </div>
-                )
-              })}
-              {!this.state.isLoading && files.length == 0 && (
-                  <NonIdealState visual={"folder-open"} description={"This folder is empty."} title={"Empty"} />
-              )}
-              {this.state.isLoading && (
-                  <Spinner />
-              )}
-            </div>
+                    )
+                  })}
+                  {!this.state.isLoading && files.length == 0 && (
+                    <NonIdealState visual={"folder-open"} description={"This folder is empty."} title={"Empty"} />
+                  )}
+                  {this.state.isLoading && (
+                    <Spinner />
+                  )}
+              </div>
+                </Selection>
             </div>
           </div>
           <div className="pt-dialog-body" />

@@ -58,6 +58,7 @@ body {
   margin: 10px;  
   padding: 5px !important;
   padding-bottom: 0 !important;
+  align-self: flex-start;
 }
 
 .grid-card img {
@@ -138,5 +139,28 @@ body {
 }
 
 @import "../node_modules/basscss/css/basscss";
+.react-selection {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+.react-selection-rectangle {
+  pointer-events: none;
+  transition: opacity 0.4s;
+  position: absolute;
+  background-color: rgba(204,204,204,0.2);
+  border: 1px solid #ccc;
+  width: 100px;
+  height: 100px;
+}
+
+.target {
+  border: 1px solid transparent;
+}
+
+.react-selection-selected {
+  border: 1px solid #48aff0;
+}
+
 
 @import "./Toast.scss";
