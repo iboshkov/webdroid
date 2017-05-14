@@ -12,6 +12,13 @@ body {
 .react-resizable {
   position: relative; }
 
+.explorer-dropzone {
+  width: 100%;
+  height: 100%; }
+
+.explorer-nonideal-state {
+  margin-top: 100px !important; }
+
 .react-resizable-handle {
   position: absolute;
   width: 20px;

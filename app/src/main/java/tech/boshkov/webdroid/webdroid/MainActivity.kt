@@ -75,10 +75,21 @@ class MainActivity : AppCompatActivity(), WebApplication {
     private fun addFolderToZip(folder: File, zip: ZipOutputStream, basePath: String? = null) {
         val files = folder.listFiles()
         var newBasePath = basePath
+        // TODO: Fix this when not tired.
         if (basePath.isNullOrEmpty()) {
             val absPath = folder.absolutePath
             newBasePath = absPath.substring(0, absPath.length - folder.name.length)
         }
+
+        if (!newBasePath.isNullOrEmpty()) {
+            // Add the folder itself to the zip
+            // Add "/" at the end to force java to treat the path as a directory.
+            var name = folder.absolutePath.substring(newBasePath!!.length) + "/"
+            val zipEntry = ZipEntry(name)
+            zip.putNextEntry(zipEntry)
+            zip.closeEntry()
+        }
+
         for (file in files) {
             if (file.isDirectory) {
                 addFolderToZip(file, zip, newBasePath)
@@ -141,6 +152,32 @@ class MainActivity : AppCompatActivity(), WebApplication {
         return NanoHTTPD.newFixedLengthResponse(response.toString());
     }
 
+
+    @RequestHandler(route = "/rest/filesystem/zipAndDownload/", methods = arrayOf("POST"))
+    fun filesystemZipAndDownload(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        val body = server.parseTextBody(sess)
+        val gson = Gson()
+
+        val payload = gson.fromJson<ZipPayload>(body);
+
+        var tempFile = File.createTempFile("WebDroidArchive", ".zip");
+
+        val outZip = ZipOutputStream(FileOutputStream(tempFile))
+
+        payload.files.forEach {
+            addToZip(File(it), outZip)
+        }
+
+        outZip.close()
+
+        var response = jsonObject(
+            "status" to "success",
+            "absolutePath" to tempFile.absolutePath
+        )
+
+        return NanoHTTPD.newFixedLengthResponse(response.toString())
+    }
+
     @RequestHandler(route = "/rest/filesystem/delete/", methods = arrayOf("DELETE"))
     fun filesystemDelete(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
@@ -179,6 +216,7 @@ class MainActivity : AppCompatActivity(), WebApplication {
         val body = server.parseTextBody(sess)
         val gson = Gson()
         val payload = gson.fromJson<MkdirPayload>(body);
+        payload.name = payload.name.trim() // TODO: Figure out how spaces at beginning and end of path should be handled
 
         var status = 0
         var message = ""
@@ -259,8 +297,17 @@ class MainActivity : AppCompatActivity(), WebApplication {
     }
 
     fun getAbsoluteFile(relative: String? = "") : File {
-        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
+        val fsFile = File(Environment.getExternalStorageDirectory().toURI())
         return File(fsFile, relative)
+    }
+
+    fun serveFile(file: File): NanoHTTPD.Response {
+        val mime = NanoHTTPD.getMimeTypeForFile(file.absolutePath)
+        val fileName = file.name;
+        val response = NanoHTTPD.newChunkedResponse(NanoHTTPD.Response.Status.OK, mime, file.inputStream())
+        response.addHeader("Content-disposition", "attachement; filename=$fileName")
+
+        return response;
     }
 
     @RequestHandler(route = "/rest/filesystem/serve/")
@@ -274,14 +321,19 @@ class MainActivity : AppCompatActivity(), WebApplication {
             return server.notFoundResponse;
         }
 
-        var fileName = path.name;
 
-        var mime = NanoHTTPD.getMimeTypeForFile(path.absolutePath)
+        return serveFile(path)
+    }
 
-        var response = NanoHTTPD.newChunkedResponse(NanoHTTPD.Response.Status.OK, mime, path.inputStream())
-        response.addHeader("Content-disposition", "attachement; filename=$fileName")
+    @RequestHandler(route = "/rest/filesystem/serveAbsolute/")
+    fun downloadAbsolute(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        var absPath : String? = sess.parameters["path"]?.get(0) ?: ""
+        var path = File(absPath)
+        if (!path.exists()) {
+            return server.notFoundResponse;
+        }
 
-        return response;
+        return serveFile(path)
     }
 
     fun zipPath(path: File, target: File) {

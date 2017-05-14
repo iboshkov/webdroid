@@ -106,7 +106,7 @@ class FileExplorer extends Component {
   }
 
   deleteAlertConfirmed() {
-    fetch(`http://localhost:3000/rest/filesystem/mkdir/`, {
+    fetch(`http://localhost:3000/rest/filesystem/delete/`, {
       method: 'delete',
       body: JSON.stringify({
         files: this.state.selection
@@ -204,6 +204,25 @@ class FileExplorer extends Component {
   relativePath(to) {
     let _currentPath = this.state.currentPath;
     return _currentPath = path.join(_currentPath, to);
+  }
+
+  handleDownloadSelection() {
+    fetch(`http://localhost:3000/rest/filesystem/zipAndDownload/`, {
+      method: 'post',
+      body: JSON.stringify({
+        files: this.state.selection
+      })
+    }).then(r => r.json()).then(
+      data => {
+        console.log(data)
+        window.open(`http://localhost:3000/rest/filesystem/serveAbsolute/?path=${data.absolutePath}`, "_blank");
+        this.fetchList(this.state.currentPath)
+      }
+      ).catch(err => {
+        console.error("Error during zip/download");
+        console.log(err)
+      })
+
   }
 
   navigateRelative(to) {
@@ -342,8 +361,7 @@ class FileExplorer extends Component {
               </ul>
             </div>
             <div className="pt-navbar-group pt-align-right">
-              <button disabled={!this.hasSelection()} onClick={() => {
-              }} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
+              <button disabled={!this.hasSelection()} onClick={() => {this.handleDownloadSelection()}} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
               <button disabled={!this.hasSelection()} onClick={() => this.setState({ deleteAlertOpen: true })} className="pt-button pt-minimal pt-intent-danger pt-icon-document">Delete</button>
               <span className="pt-navbar-divider"></span>
               <button className="pt-button pt-minimal pt-icon-add" onClick={() => this.setState({ newFolderAlertOpened: true })}>New Folder</button>

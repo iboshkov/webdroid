@@ -8,6 +8,8 @@ import LazyLoad from 'react-lazy-load';
 import Lightbox from 'react-images';
 
 import { Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
+import Dropzone from 'react-dropzone';
+
 class FileGrid extends Component {
     constructor(props) {
         super(props)
@@ -15,6 +17,7 @@ class FileGrid extends Component {
         this.state = {
             dialogOpen: false,
             loadedList: [],
+            selection: [],
             files: [],
             backStack: ["/"],
             forwardStack: [],
@@ -31,6 +34,13 @@ class FileGrid extends Component {
         return _currentPath = path.join(_currentPath, to);
     }
 
+
+    onDrop(acceptedFiles, rejectedFiles) {
+        // do stuff with files...
+        console.log("Dropped", acceptedFiles, rejectedFiles)
+    }
+
+
     download(node) {
         return `http://localhost:3000/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
     }
@@ -40,7 +50,7 @@ class FileGrid extends Component {
         selectedTargets.forEach(target => {
             console.log(target.getAttribute("data-path-abs"))
         });
-
+        this.setState({selection: selectedTargets}); // TODO: Not this.
         if (!this.props.onSelectionChanged) return;
 
         this.props.onSelectionChanged(selectedTargets);
@@ -70,6 +80,11 @@ class FileGrid extends Component {
         let { files, isLoading } = this.props;
         return (
             <Selection target=".target" afterSelect={this.afterSelect.bind(this)}>
+                <Dropzone
+                disableClick={files.length > 0}
+                className="explorer-dropzone"
+                onDrop={this.onDrop.bind(this)}>
+
                 <div className="grid-container">
                     {!isLoading && files.map(node => {
                         let icon = node.isDirectory ? "folder-open" : "document";
@@ -87,8 +102,8 @@ class FileGrid extends Component {
 
                                         }} offset={100} >
                                             <img style={{
-                                            display: imageLoading ? 'none' : 'block'
-                                        }} onLoad={() => {
+                                                display: imageLoading ? 'none' : 'block'
+                                            }} onLoad={() => {
                                                 this.state.loadedList.push(p);
                                                 this.setState({ loadedList: this.state.loadedList });
                                             }} onClick={() => this.setState({ lightboxImage: this.download(node), lightboxIsOpen: true })} src={this.download(node)} />
@@ -113,12 +128,17 @@ class FileGrid extends Component {
                         )
                     })}
                     {!isLoading && files.length == 0 && (
-                        <NonIdealState visual={"folder-open"} description={"This folder is empty."} title={"Empty"} />
+                        <NonIdealState className="explorer-nonideal-state" visual={"folder-open"} description={
+                            `
+                            Click here or drop some files to upload them here.
+                            `
+                        } title={"This folder is empty"} />
                     )}
                     {isLoading && (
                         <Spinner />
                     )}
                 </div>
+            </Dropzone>
             </Selection>
         );
     }
