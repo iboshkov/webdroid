@@ -1,22 +1,19 @@
 package tech.boshkov.webdroid.server
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
+import com.github.salomonbrys.kotson.jsonObject
+import com.google.gson.JsonObject
 
 import com.mitchellbosecke.pebble.PebbleEngine
 import com.mitchellbosecke.pebble.error.PebbleException
 import com.mitchellbosecke.pebble.loader.StringLoader
 import com.mitchellbosecke.pebble.template.PebbleTemplate
+import fi.iki.elonen.NanoHTTPD
+import fi.iki.elonen.NanoHTTPD.HTTPSession
 
-import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
-import java.io.InputStream
-import java.io.InputStreamReader
-import java.io.StringWriter
-import java.io.UnsupportedEncodingException
-import java.io.Writer
 import java.lang.reflect.Method
 import java.net.ServerSocket
 import java.net.URLEncoder
@@ -27,15 +24,18 @@ import java.util.HashMap
 import java.util.ServiceLoader
 import java.util.StringTokenizer
 
-import fi.iki.elonen.NanoHTTPD
 import fi.iki.elonen.WebServerPlugin
 import fi.iki.elonen.WebServerPluginInfo
 import fi.iki.elonen.util.ServerRunner
+import org.json.JSONObject
 import tech.boshkov.webdroid.server.annotations.RequestHandler
 import tech.boshkov.webdroid.server.interfaces.WebApplication
+import java.io.*
 
 open class WebServer @Throws(IOException::class)
+
 constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Runnable {
+
 
     private val mServerSocket: ServerSocket? = null
     private val mApplications: ArrayList<WebApplication>
@@ -71,7 +71,6 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
         this.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false)
 
     }
-
 
     /**
      * URL-encodes everything between "/"-characters. Encodes spaces as '%20'
@@ -139,13 +138,21 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
             for (handler in routeMethodMap.keys) {
                 val route = handler.route
                 val methods = handler.methods
-                if (!methods.contains(sessMethod)) {
+                if (!methods.contains(sessMethod) && sessMethod != "OPTIONS") {
                     continue
                 }
 
                 Log.d(TAG, "Checking if $route == $uri")
                 if (route != uri) {
                     continue
+                }
+
+                if (sessMethod == "OPTIONS")
+                {
+                    var res = newFixedLengthResponse("OK - NOTE: This is a workaround for preflight requests.");
+                    res.addHeader("Access-Control-Allow-Origin", "*"); // TODO: Not this.
+                    res.addHeader("Access-Control-Allow-Methods", methods.joinToString(separator=",")); // TODO: Not this.
+                    return res;
                 }
 
                 var handlerMethod = routeMethodMap[handler]
@@ -281,4 +288,27 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
         }
         return routeMethodMap
     }
+
+    open val REQUEST_BUFFER_LEN = 512;
+
+    fun parseTextBody(sess: IHTTPSession) : String {
+        val fullSess = sess as HTTPSession;
+        val baos = ByteArrayOutputStream()
+        val requestDataOutput = DataOutputStream(baos)
+        val inputStream = sess.inputStream
+        val buf = ByteArray(REQUEST_BUFFER_LEN)
+        var size = fullSess.bodySize;
+
+        var rlen = 0;
+        while (rlen >= 0 && size > 0) {
+            rlen = inputStream.read(buf, 0, Math.min(size, REQUEST_BUFFER_LEN.toLong()).toInt())
+            size -= rlen.toLong()
+            if (rlen > 0) {
+                requestDataOutput.write(buf, 0, rlen)
+            }
+        }
+
+        return baos.toString()
+    }
 }
+

@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import './app.css';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import * as path from 'path';
 import * as Blueprint from "@blueprintjs/core";
-import Selection from './Selection/Selection'
+import Selection from '../Selection/Selection'
 import LazyLoad from 'react-lazy-load';
-import { Dialog, Button, Intent, Position, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
+import Lightbox from 'react-images';
+import FileGrid from './FileGrid';
+
+import { Toaster, Alert, Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
+const OurToaster = Toaster.create({
+  className: "my-toaster",
+  position: Position.TOP_LEFT,
+});
+
 class FileExplorer extends Component {
   constructor(props) {
     super(props)
-    const tooltipLabel = <Tooltip content="An eye!"><span className="pt-icon-standard pt-icon-eye-open" /></Tooltip>;
-    const longLabel = "Organic meditation gluten-free, sriracha VHS drinking vinegar beard man.";
+    this.newFolderName = "";
 
     this.state = {
       dialogOpen: false,
       currentPath: "/",
+      loadedList: [],
       files: [],
       backStack: ["/"],
       forwardStack: [],
       isLoading: false,
+      lightboxImage: null,
+      lightboxIsOpen: false,
+      deleteAlertOpen: false,
+      newFolderAlertOpened: false,
+      selection: [],
       nodes: [
         {
           hasCaret: true,
@@ -31,8 +43,8 @@ class FileExplorer extends Component {
           isExpanded: true,
           label: <Tooltip content="I'm a folder <3">Folder 1</Tooltip>,
           childNodes: [
-            { iconName: "document", label: "Item 0", secondaryLabel: tooltipLabel },
-            { iconName: "pt-icon-tag", label: longLabel },
+            { iconName: "document", label: "Item 0" },
+            { iconName: "pt-icon-tag" },
             {
               hasCaret: true,
               iconName: "pt-icon-folder-close",
@@ -91,6 +103,54 @@ class FileExplorer extends Component {
     console.log("Click");
     nodeData.isExpanded = true;
     this.setState(this.state);
+  }
+
+  deleteAlertConfirmed() {
+    fetch(`http://localhost:3000/rest/filesystem/mkdir/`, {
+      method: 'delete',
+      body: JSON.stringify({
+        files: this.state.selection
+      })
+    }).then(r => r.json()).then(
+      data => {
+        console.log(data)
+        this.fetchList(this.state.currentPath)
+        this.showDeleteToast(data);
+      }
+      ).catch(err => {
+        console.error("Error during file deletion list");
+        console.log(err)
+      })
+
+    this.setState({ deleteAlertOpen: false })
+  }
+
+  newFolderConfirmed() {
+    fetch(`http://localhost:3000/rest/filesystem/mkdir/`, {
+      method: 'POST',
+      body: JSON.stringify({
+        name: this.relativePath(this.newFolderName)
+      })
+    }).then(r => r.json()).then(
+      data => {
+        console.log(data)
+        this.fetchList(this.state.currentPath)
+        let intent = data.status == 0 ? Intent.SUCCESS : Intent.DANGER
+        this.toaster.show({ intent, iconName: "folder-open", message: data.message });        
+        
+      }
+      ).catch(err => {
+        console.error("Error during file deletion list");
+        console.log(err)
+      })
+
+    this.setState({ newFolderAlertOpened: false })
+  }
+
+  hasSelection() { return this.state.selection.length > 0 }
+
+  showDeleteToast(data) {
+    this.toaster.show({ intent: Intent.DANGER, iconName: "trash", message: `Sucecssfully deleted ${data.count} items!` });
   }
 
   forEachNode(nodes, callback) {
@@ -159,11 +219,45 @@ class FileExplorer extends Component {
     this.fetchList(this.state.currentPath);
   }
 
-  afterSelect(selectedTargets ) {
-      const hasSelected = selectedTargets.length
-      selectedTargets.forEach(target => {
-        console.log(target.getAttribute("data-path"))
-      });
+  afterSelect(selectedTargets) {
+    const hasSelected = selectedTargets.length
+    this.setState({
+      selection: selectedTargets.map(target => {
+        return target.getAttribute("data-path-abs");
+      })
+    });
+  }
+
+  openLightBox(path) {
+    console.log(`Opening lightbox ${path}`)
+    this.setState({ lightboxIsOpen: true, lightboxImage: path });
+  }
+
+  fileItemDoubleClicked(node) {
+    if (node.isDirectory) {
+      this.navigateRelative(node.name)
+      return;
+    }
+
+    if (this.isImage(node.path)) {
+      this.openLightBox(this.download(node));
+      return;
+    }
+
+  }
+
+  fileItemClicked(node) {
+    if (node.isDirectory) {
+      // Toggle selection
+      // this.navigateRelative(node.name)
+      return;
+    }
+
+    if (this.isImage(node.path)) {
+      this.openLightBox(this.download(node));
+      return;
+    }
+
   }
 
   isImage(path) {
@@ -172,6 +266,10 @@ class FileExplorer extends Component {
       if (path.endsWith(ext)) return true;
     }
     return false;
+  }
+
+  setFullscreen() {
+
   }
 
   render() {
@@ -189,6 +287,7 @@ class FileExplorer extends Component {
       }
     })
     let breadcrumbs = crumbs;
+
     console.log("currentPathS", breadcrumbs);
     return (
       <Rnd
@@ -203,8 +302,8 @@ class FileExplorer extends Component {
         z={1003}
         dragHandlerClassName={".pt-dialog-header"}
       >
-        <div className="pt-dialog">
-          <div className="pt-dialog-header">
+        <div className="pt-dialog pt-dialog-window">
+          <div onDoubleClick={this.setFullscreen.bind(this)} className="pt-dialog-header">
             <span className="pt-icon-large pt-icon-folder-open"></span>
             <h5>Files : {this.state.currentPath}</h5>
             <button aria-label="Close" className="pt-dialog-close-button pt-icon-small-cross"></button>
@@ -243,12 +342,11 @@ class FileExplorer extends Component {
               </ul>
             </div>
             <div className="pt-navbar-group pt-align-right">
-              <button className="pt-button pt-minimal pt-icon-home">Home</button>
-              <button className="pt-button pt-minimal pt-icon-document">Files</button>
+              <button disabled={!this.hasSelection()} onClick={() => {
+              }} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
+              <button disabled={!this.hasSelection()} onClick={() => this.setState({ deleteAlertOpen: true })} className="pt-button pt-minimal pt-intent-danger pt-icon-document">Delete</button>
               <span className="pt-navbar-divider"></span>
-              <button className="pt-button pt-minimal pt-icon-user"></button>
-              <button className="pt-button pt-minimal pt-icon-notifications"></button>
-              <button className="pt-button pt-minimal pt-icon-cog"></button>
+              <button className="pt-button pt-minimal pt-icon-add" onClick={() => this.setState({ newFolderAlertOpened: true })}>New Folder</button>
             </div>
           </nav>
 
@@ -282,59 +380,68 @@ class FileExplorer extends Component {
               />
             </div>
             <div className="sm-col sm-col-9  with-overflow">
-              {this.props.children}
-              <Selection target=".target" afterSelect={this.afterSelect}>
-              
-              <div className="grid-container">
-
-                  {!this.state.isLoading && files.map(node => {
-                    let icon = node.isDirectory ? "folder-close" : "document";
-                    let p = node.name;
-                    let isImage = this.isImage(p);
-                    return (
-                      <div data-path={this.relativePath(p)} onClick={() => node.isDirectory && this.navigateRelative(p)} className="grid-card target pt-card pt-elevation-0 pt-interactive">
-                        {isImage ? (
-                          <LazyLoad >
-                            <img src={this.download(node)} />
-                          </LazyLoad>
-                        ): (
-                          <span className={`pt-icon-large pt-icon-${icon} explorer-icon pt-intent-primary`} />
-                        )}
-
-                        <Text className="explorer card filename">
-                          {node.name}
-                        </Text>
-                        <nav className=" .modifier">
-                          <div className="pt-navbar-group pt-align-left">
-                            <Tooltip content="Click to download!" position={Position.RIGHT}><a target="_blank" href={this.download(node)} className="pt-button pt-minimal pt-icon-download"></a></Tooltip>
-                          </div>
-
-                          <div className="pt-navbar-group pt-align-right">
-                            <Tooltip content="Click to delete" position={Position.RIGHT}><button className="pt-button pt-minimal pt-icon-trash"></button></Tooltip>
-                          </div>
-                        </nav>
-                      </div>
-                    )
-                  })}
-                  {!this.state.isLoading && files.length == 0 && (
-                    <NonIdealState visual={"folder-open"} description={"This folder is empty."} title={"Empty"} />
-                  )}
-                  {this.state.isLoading && (
-                    <Spinner />
-                  )}
-              </div>
-                </Selection>
+              <FileGrid onSelectionChanged={this.afterSelect.bind(this)} onItemClicked={this.fileItemClicked.bind(this)} onItemDoubleClicked={this.fileItemDoubleClicked.bind(this)} currentPath={this.state.currentPath} files={files} isLoading={this.state.isLoading} />
             </div>
           </div>
-          <div className="pt-dialog-body" />
+          <div className="pt-diralog-body">
+          </div>
 
           <div className="pt-dialog-footer">
+
             <div className="pt-dialog-footer-actions">
+              <div className="status">
+                {this.state.selection.length > 0 && (`${this.state.selection.length} selected items`)}
+              </div>
               <button type="button" className="pt-button">Secondary button</button>
               <button type="submit" className="pt-button pt-intent-primary">Primary button</button>
             </div>
           </div>
+
+          <Overlay className="lightbox pt-overlay-scroll-container" isOpen={this.state.lightboxIsOpen} onClose={() => this.setState({ lightboxIsOpen: false })}>
+            <div className="swing-transition pt-card pt-elevation-4">
+              <img className="lightbox-image" src={this.state.lightboxImage} />
+              <Button intent={Intent.DANGER} onClick={this.handleClose}>Close</Button>
+              <Button onClick={this.focusButton} style={{ float: "right" }}>Focus button</Button>
+            </div>
+          </Overlay>
+          <Alert
+            className={this.props.themeName}
+            intent={Intent.DANGER}
+            isOpen={this.state.deleteAlertOpen}
+            confirmButtonText="Delete"
+            cancelButtonText="Cancel"
+            iconName="trash"
+            onConfirm={this.deleteAlertConfirmed.bind(this)}
+            onCancel={() => this.setState({ deleteAlertOpen: false })}
+          >
+            <p>
+              Are you sure you want delete the selected files ?<br />
+              <b>This operation cannot be undone.</b>
+            </p>
+          </Alert>
+          <Alert
+            className={this.props.themeName}
+            intent={Intent.SUCCESS}
+            isOpen={this.state.newFolderAlertOpened}
+            confirmButtonText="Create"
+            cancelButtonText="Cancel"
+            iconName="folder-open"
+            onConfirm={this.newFolderConfirmed.bind(this)}
+            onCancel={() => this.setState({ newFolderAlertOpened: false })}
+          >
+            <p>
+              <div className="pt-form-group pt-intent-danger">
+                <label autofocus={true} className="pt-label" htmlFor="folder-name">
+                  <b>New folder name:</b>
+                </label>
+                <div class="pt-form-content">
+                  <input style={{width: "100%"}} name="folder-name" className="pt-input" onChange={(e) => this.newFolderName = e.target.value} placeholder="Enter the name of the new folder." />
+                </div>
+              </div>
+            </p>
+          </Alert>
         </div>
+        <Toaster position={Position.TOP_RIGHT} ref={ref => this.toaster = ref} />
       </Rnd>
     );
   }

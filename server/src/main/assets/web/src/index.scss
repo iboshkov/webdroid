@@ -7,6 +7,9 @@ body {
   overflow: hidden;
 }
 
+.pt-alert-contents {
+  width: 100%;
+}
 
 .react-resizable {
   position: relative;
@@ -48,21 +51,40 @@ body {
 
 .grid-container {
   display: flex;
-    flex-direction:  row ;
-    flex-wrap: wrap; 
-
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .grid-card {
   width: 192px;
-  margin: 10px;  
   padding: 5px !important;
   padding-bottom: 0 !important;
+  margin: 10px;  /* Magic! */
   align-self: flex-start;
 }
 
 .grid-card img {
   width: 100%;
+}
+
+.notif-badge {
+   position:relative;
+}
+
+.notif-badge[data-badge]:after {
+   content:attr(data-badge);
+   position:absolute;
+   top:-5px;
+   right:-8px;
+   font-size:.7em;
+   background:red;
+   color:white;
+   width:18px;height:18px;
+   text-align:center;
+   line-height:18px;
+   border-radius:50%;
+   box-shadow:0 0 1px #333;
 }
 
 .pt-tree-node-label {
@@ -72,19 +94,19 @@ body {
 .phone-status-widget {
     width: 400px;
     height: 300px;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.4);
     border-radius: 15px;
     padding: 10px;
     position: absolute;
     right: 25px;
-    top: 25px;
+    top: 100px;
     display: block;
 }
 
 .phone-image {
     position: absolute;
     pointer-events: none;
-    left: -100px
+    left: -80px
 }
 
 .phone-details {
@@ -96,17 +118,28 @@ body {
   width: 270px !important;
 }
 
-.pt-dialog * {
+.pt-dialog-window * {
   cursor: default !important;
 }
 
-.pt-dialog {
+.pt-dialog-window {
   height: 100% !important;
   width: 100% !important;
   top: 0 !important;
   left: 0 !important;
   transform: none;
-  position: absolute;
+  position: relative;
+  opacity: 0;
+}
+
+.pt-dialog-body {
+  margin: 10px !important;
+}
+
+.pt-dialog-footer-actions .status {
+    position: absolute !important;
+    left: 15px !important;
+    line-height: 30px;
 }
 
 .explorer.card.filename {
@@ -143,6 +176,8 @@ body {
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  height: 100%;
+  
 }
 .react-selection-rectangle {
   pointer-events: none;
@@ -150,8 +185,6 @@ body {
   position: absolute;
   background-color: rgba(204,204,204,0.2);
   border: 1px solid #ccc;
-  width: 100px;
-  height: 100px;
 }
 
 .target {
@@ -162,5 +195,76 @@ body {
   border: 1px solid #48aff0;
 }
 
+.lightbox .pt-overlay-content {
+  z-index: 21;
+  position: fixed;
+  left: calc(50% - 30%);
+  top: 100px;
+  width: 60%;
+  margin-bottom: 100px;
+}
 
-@import "./Toast.scss";
+.lightbox-image {
+  width: 100%;
+}
+
+.swing-transition.pt-overlay-enter, .swing-transition.pt-overlay-appear {
+    -webkit-transform: translateY(-50vh) rotate(-10deg);
+            transform: translateY(-50vh) rotate(-10deg); 
+}
+
+.swing-transition.pt-overlay-enter-active, .swing-transition.pt-overlay-appear-active {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg);
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    transition-duration: 300ms;
+    transition-timing-function: cubic-bezier(0.54, 1.12, 0.38, 1.11);
+    transition-delay: 0;
+}
+
+.swing-transition.pt-overlay-leave {
+    -webkit-transform: translateY(0) rotate(0deg);
+            transform: translateY(0) rotate(0deg); 
+}
+
+.swing-transition.pt-overlay-leave-active {
+    -webkit-transform: translateY(150vh) rotate(-20deg);
+            transform: translateY(150vh) rotate(-20deg);
+    transition-property: -webkit-transform;
+    transition-property: transform;
+    transition-property: transform, -webkit-transform;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 1, 0.75, 0.9);
+    transition-delay: 0; 
+  }
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.example-appear {
+  opacity: 0.0;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+

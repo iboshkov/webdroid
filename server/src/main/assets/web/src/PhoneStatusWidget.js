@@ -3,6 +3,7 @@ import './app.css';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import ResizableDialog from './ResizableDialog';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 import { Dialog, Button, Intent, Menu, MenuItem, MenuDivider, Position, ProgressBar, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 
@@ -41,10 +42,10 @@ class PhoneStatusWidget extends Component {
                 console.log("Error getting phone status");
             })
     }
-    
+
     chargeMessage() {
-        let {status} = this.state;
-        
+        let { status } = this.state;
+
         if (!status.charging) {
             return "Discharging";
         }
@@ -55,17 +56,23 @@ class PhoneStatusWidget extends Component {
 
 
     render() {
-        let {status, summary} = this.state;
+        let { status, summary } = this.state;
         let os = summary ? summary.os : undefined;
-        if (!os) return (<div/>);
+        if (!os) return (<div />);
         console.log(status, summary);
         return (
-            <div className="App">
-                <Draggable>
+            <ReactCSSTransitionGroup
+                transitionName="example"
+                transitionAppear={true}
+                transitionAppearTimeout={1200}
+                transitionEnter={false}
+                transitionLeave={false}>
+
+                <Draggable key={"phone-summary"}>
                     <div className="phone-status-widget pt-dark">
                         <h3>{summary.brand} {summary.device}</h3>
                         <div className="phone-image">
-                            <img height="300px" src="http://image3.mouthshut.com/images/Restaurant/Photo/LG-G3-58772_3498.png" />
+                            <img height="300px" src="https://s-media-cache-ak0.pinimg.com/originals/e7/60/31/e7603155e2f8ecb715e9b62fa59deb1f.jpg" />
                         </div>
                         <div className="phone-details">
                             <table className="pt-table .modifier">
@@ -87,7 +94,7 @@ class PhoneStatusWidget extends Component {
                         </div>
                     </div>
                 </Draggable>
-            </div>
+            </ReactCSSTransitionGroup>
         );
     }
 }

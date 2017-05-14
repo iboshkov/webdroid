@@ -41,7 +41,9 @@ dependencies {
     compile 'com.sromku:simple-storage:1.2.0'
     compile group: "org.nanohttpd", name: "nanohttpd", version: "2.3.1"
     compile group: "org.nanohttpd", name: "nanohttpd-webserver", version: "2.2.0"
+    compile 'com.github.salomonbrys.kotson:kotson:2.5.0'
     compile 'com.mitchellbosecke:pebble:2.1.0'
+    compile 'org.zeroturnaround:zt-zip:1.11'
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }

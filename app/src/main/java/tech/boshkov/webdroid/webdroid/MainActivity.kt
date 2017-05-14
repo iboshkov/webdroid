@@ -12,9 +12,6 @@ import com.mitchellbosecke.pebble.error.PebbleException
 import com.mitchellbosecke.pebble.loader.StringLoader
 import com.mitchellbosecke.pebble.template.PebbleTemplate
 
-import java.io.IOException
-import java.io.StringWriter
-import java.io.Writer
 import java.util.HashMap
 
 import fi.iki.elonen.NanoHTTPD
@@ -26,13 +23,79 @@ import android.content.IntentFilter
 import android.os.BatteryManager
 import android.os.Environment
 import com.github.salomonbrys.kotson.*
+import com.google.gson.Gson
 import com.google.gson.JsonObject
-import java.io.File
+import org.zeroturnaround.zip.*
+import org.zeroturnaround.zip.FileSource
+import org.zeroturnaround.zip.commons.IOUtils
+import org.zeroturnaround.zip.extra.AsiExtraField
+import org.zeroturnaround.zip.extra.ExtraFieldUtils
+import java.io.*
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
+
+
+class FSFile {
+    var name: String = "";
+    var absolutePath: String = "";
+}
+
+class ZipPayload {
+    var outFile: String = ""
+    var files = listOf<String>()
+}
+
+
+class FileListPayload {
+    var files = listOf<String>()
+}
+
+
+class MkdirPayload {
+    var name: String = ""
+}
 
 
 class MainActivity : AppCompatActivity(), WebApplication {
     internal lateinit var server: WebServer
     internal lateinit var batteryStatus: Intent
+
+    private fun addFileToZip(file: File, zip: ZipOutputStream, basePath: String = "") {
+        var name = file.name
+        if (!basePath.isEmpty()) {
+            name = file.absolutePath.substring(basePath.length)
+        }
+        val zipEntry = ZipEntry(name)
+        zip.putNextEntry(zipEntry)
+        IOUtils.copy(FileInputStream(file), zip)
+        zip.closeEntry()
+    }
+
+    @Throws(IOException::class)
+    private fun addFolderToZip(folder: File, zip: ZipOutputStream, basePath: String? = null) {
+        val files = folder.listFiles()
+        var newBasePath = basePath
+        if (basePath.isNullOrEmpty()) {
+            val absPath = folder.absolutePath
+            newBasePath = absPath.substring(0, absPath.length - folder.name.length)
+        }
+        for (file in files) {
+            if (file.isDirectory) {
+                addFolderToZip(file, zip, newBasePath)
+            } else {
+                addFileToZip(file, zip, newBasePath!!)
+            }
+        }
+    }
+
+    private fun addToZip(file: File, zip: ZipOutputStream, basePath: String = "") {
+        if (file.isDirectory) {
+            addFolderToZip(file, zip, basePath)
+        } else {
+            addFileToZip(file, zip, basePath)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -49,7 +112,99 @@ class MainActivity : AppCompatActivity(), WebApplication {
             e.printStackTrace()
         }
 
+        var selection = listOf<String>("/storage/emulated/0/pics", "/storage/emulated/0/pics.zip")
+        var path = File("/storage/emulated/0/pics")
+        var out = "/storage/emulated/0/out.zip"
+        var zip = File(out)
+        if (zip.exists()) {
+            zip.delete()
+        }
+
+        val outZip = ZipOutputStream(FileOutputStream(zip))
+
+        selection.forEach {
+            addToZip(File(it), outZip)
+        }
+
+        outZip.close()
     }
+
+    @RequestHandler(route = "/rest/filesystem/zip/", methods = arrayOf("POST"))
+    fun filesystemZip(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        val body = server.parseTextBody(sess)
+        val gson = Gson()
+
+        val files = gson.fromJson<ZipPayload>(body);
+        var response = jsonObject(
+                "status" to "success"
+        )
+        return NanoHTTPD.newFixedLengthResponse(response.toString());
+    }
+
+    @RequestHandler(route = "/rest/filesystem/delete/", methods = arrayOf("DELETE"))
+    fun filesystemDelete(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        val body = server.parseTextBody(sess)
+        val gson = Gson()
+        val payload = gson.fromJson<FileListPayload>(body);
+
+        var success = true;
+        var failCount = 0;
+        var deleteCount = 0;
+        for (path in payload.files ) {
+            val file = File(path)
+            println("DELETING $file")
+            success = success && file.deleteRecursively()
+            if (success) {
+                println("Deleted")
+                deleteCount++
+            } else {
+                println("Failed")
+                failCount++
+            }
+        }
+
+        var resBody = jsonObject(
+                "successful" to success,
+                "count" to deleteCount,
+                "failCount" to failCount
+        )
+
+        var response = NanoHTTPD.newFixedLengthResponse(resBody.toString())
+
+        return response;
+    }
+
+    @RequestHandler(route = "/rest/filesystem/mkdir/", methods = arrayOf("POST"))
+    fun filesystemMkdir(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        val body = server.parseTextBody(sess)
+        val gson = Gson()
+        val payload = gson.fromJson<MkdirPayload>(body);
+
+        var status = 0
+        var message = ""
+        val fsFile = getAbsoluteFile(payload.name)
+
+        if (fsFile.exists()) {
+            message = "Folder already exists"
+            status = 1
+        } else if (fsFile.mkdir()) {
+            message = "Folder created successfully"
+            status = 0
+        } else {
+            message = "Failed to create folder"
+            status = 2
+        }
+
+        var resBody = jsonObject(
+            "status" to status,
+            "message" to message
+        )
+
+        var response = NanoHTTPD.newFixedLengthResponse(resBody.toString())
+
+        return response;
+    }
+
 
     @RequestHandler(route = "/rest/phone/status")
     fun testRequest(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
@@ -103,31 +258,18 @@ class MainActivity : AppCompatActivity(), WebApplication {
         return response;
     }
 
-    @RequestHandler(route = "/post/", methods = arrayOf("POST"))
-    fun testPost(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
-        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
-
-        println("Path: $additionalPath")
+    fun getAbsoluteFile(relative: String? = "") : File {
         var fsFile = File(Environment.getExternalStorageDirectory().toURI())
-        var path = File(fsFile, additionalPath)
-        var len : Long = 0
-        var str = path.inputStream().use {
-            it.bufferedReader().use {
-                while (it.read() > 0) {len++}
-            }
-        }
-        var response = NanoHTTPD.newFixedLengthResponse(NanoHTTPD.Response.Status.OK, "application/octet-stream", path.inputStream(), len)
-        return response;
+        return File(fsFile, relative)
     }
-
 
     @RequestHandler(route = "/rest/filesystem/serve/")
     fun downloadResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
         var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")
-        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
-        var path = File(fsFile, additionalPath)
+
+        var path = getAbsoluteFile(additionalPath)
         if (!path.exists()) {
             return server.notFoundResponse;
         }
@@ -142,13 +284,38 @@ class MainActivity : AppCompatActivity(), WebApplication {
         return response;
     }
 
+    fun zipPath(path: File, target: File) {
+        ZipUtil.pack(path, target);
+    }
+
+    @RequestHandler(route = "/rest/filesystem/zip/")
+    fun zipResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
+
+        println("Path: $additionalPath")
+        var path = getAbsoluteFile(additionalPath)
+        if (!path.exists()) {
+            return server.notFoundResponse;
+        }
+
+        var fileName = path.name;
+
+        var mime = NanoHTTPD.getMimeTypeForFile(path.absolutePath)
+
+
+        var response = NanoHTTPD.newChunkedResponse(NanoHTTPD.Response.Status.OK, mime, path.inputStream())
+        response.addHeader("Content-disposition", "attachement; filename=$fileName")
+
+        return response;
+    }
+
+
     @RequestHandler(route = "/rest/filesystem/list/")
     fun fileSystemList(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
         var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")
-        var fsFile = File(Environment.getExternalStorageDirectory().toURI())
-        var path = File(fsFile, additionalPath)
+        var path = getAbsoluteFile(additionalPath)
         println("Serving $path")
         if (!path.exists()) {
             return server.notFoundResponse;

@@ -1,5 +1,5 @@
-import React, {PropTypes} from 'react'
-import {findDOMNode} from 'react-dom'
+import React, { PropTypes } from 'react'
+import { findDOMNode } from 'react-dom'
 import LimitRange from './LimitRange'
 import { Portal } from '@blueprintjs/core';
 
@@ -8,7 +8,7 @@ const topRightLimitRange = new LimitRange('top-right')
 const downRightLimitRange = new LimitRange('down-right')
 const downLeftLimitRange = new LimitRange('down-left')
 
-const toggleClass = function(el, condition, className) {
+const toggleClass = function (el, condition, className) {
   let toggle = condition ? 'add' : 'remove'
 
   if (typeof condition === 'string' && arguments.length === 2) {
@@ -48,44 +48,66 @@ class Selection extends React.Component {
       opacity: 0,
     }
   }
-  
+
   componentDidMount() {
     this._box = findDOMNode(this)
   }
 
-  mousedown = (ev)=> {
+  mousedown = (ev) => {
     const targetSelect = this.props.target
     this.targets = Array.from(this._box.querySelectorAll(targetSelect))
-    this.ctrlKey = (ev.ctrlKey || ev.metaKey)
+    this.ctrlKey = (ev.shiftKey || ev.ctrlKey || ev.metaKey)
 
     if (this.ctrlKey) {
       window.addEventListener('keyup', this.keyup, false)
     } else {
-      this.targets.forEach((target)=> {
+      this.targets.forEach((target) => {
         target.classList.remove(this.props.selectedClass)
       })
     }
-
     this.clickY = ev.pageY// - ev.currentTarget.offsetTop
     this.clickX = ev.pageX// - ev.currentTarget.offsetLeft
+
+    this.targets.forEach((target) => {
+      const { selectedClass } = this.props
+      const bounds = target.getBoundingClientRect();
+      const tar = {
+        x: bounds.left,
+        y: bounds.top,
+        xx: bounds.right,
+        yy: bounds.bottom,
+      }
+      const isDouble = this.clickX >= tar.x && this.clickX <= tar.xx && this.clickY >= tar.y && this.clickY <= tar.yy;
+      
+      const hasDataDouble = target.dataset.isDouble === 'true' ? true : false
+
+      if (this.ctrlKey) {
+        if (isDouble !== hasDataDouble) {
+          toggleClass(target, selectedClass)
+          target.dataset.isDouble = isDouble
+        }
+      } else {
+        toggleClass(target, isDouble, selectedClass)
+      }
+    })
 
     document.addEventListener('mousemove', this.mousemove, false)
     document.addEventListener('mouseup', this.mouseup, false)
   }
 
-  afterSelect = ()=> {
-    const {afterSelect, selectedClass} = this.props
+  afterSelect = () => {
+    const { afterSelect, selectedClass } = this.props
     afterSelect(this.targets.filter(t => t.classList.contains(selectedClass)))
   }
 
-  keyup = (ev) =>{
+  keyup = (ev) => {
     if (!this.ctrlKey) return
     this.afterSelect()
     window.removeEventListener('keyup', this.keyup)
   }
 
-  mouseup = (ev)=> {
-    const {isLimit} = this.props
+  mouseup = (ev) => {
+    const { isLimit } = this.props
     this.setState({
       rectangleStyle: {
         ...this.state.rectangleStyle,
@@ -96,8 +118,9 @@ class Selection extends React.Component {
     document.removeEventListener('mousemove', this.mousemove)
     document.removeEventListener('mouseup', this.mouseup)
 
+
     if (this.ctrlKey) {
-      this.targets.forEach((t)=> t.removeAttribute('data-is-double'))
+      this.targets.forEach((t) => t.removeAttribute('data-is-double'))
     } else {
       this.afterSelect()
     }
@@ -110,10 +133,10 @@ class Selection extends React.Component {
     }
   }
 
-  mousemove = (ev)=> {
+  mousemove = (ev) => {
     const moveX = (ev.pageX) - this.clickX
     const moveY = (ev.pageY) - this.clickY
-    const {isLimit} = this.props
+    const { isLimit } = this.props
 
     let rectangleSize = {}
 
@@ -182,8 +205,8 @@ class Selection extends React.Component {
       }
     })
 
-    this.targets.forEach((target)=> {
-      const {selectedClass} = this.props
+    this.targets.forEach((target) => {
+      const { selectedClass } = this.props
       const bounds = target.getBoundingClientRect();
       const tar = {
         x: bounds.left,
@@ -199,8 +222,10 @@ class Selection extends React.Component {
         yy: rectangleSize.top + rectangleSize.height,
       }
 
+      const mouseOver = this.clickX >= tar.x && this.clickX <= tar.xx && this.clickY >= tar.y && this.clickY <= tar.yy;
+
       const isDouble = Math.max(tar.x, square.x) <= Math.min(tar.xx, square.xx) &&
-        Math.max(tar.y, square.y) <= Math.min(tar.yy, square.yy)
+        Math.max(tar.y, square.y) <= Math.min(tar.yy, square.yy) || (mouseOver)
 
       const hasDataDouble = target.dataset.isDouble === 'true' ? true : false
 
@@ -215,21 +240,21 @@ class Selection extends React.Component {
     })
   }
 
-  shouldComponentUpdate({target, selectedClass, isLimit},
-    {rectangleStyle: {left, top, width, height, opacity}}) {
+  shouldComponentUpdate({ target, selectedClass, isLimit },
+    { rectangleStyle: { left, top, width, height, opacity } }) {
 
-    const {props, state: {rectangleStyle}} = this
+    const { props, state: { rectangleStyle } } = this
 
     return true;
   }
 
   render() {
-    const {children, target, ...props} = this.props
+    const { children, target, ...props } = this.props
     return (
       <div {...props} className="react-selection" onMouseDown={this.mousedown}>
         {children}
         <Portal ref={this.rectangleElement}>
-          <div className="react-selection-rectangle" style={this.state.rectangleStyle} />        
+          <div className="react-selection-rectangle" style={this.state.rectangleStyle} />
         </Portal>
       </div>
     )
