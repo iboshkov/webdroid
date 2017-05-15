@@ -122,22 +122,6 @@ class MainActivity : AppCompatActivity(), WebApplication {
         } catch (e: IOException) {
             e.printStackTrace()
         }
-
-        var selection = listOf<String>("/storage/emulated/0/pics", "/storage/emulated/0/pics.zip")
-        var path = File("/storage/emulated/0/pics")
-        var out = "/storage/emulated/0/out.zip"
-        var zip = File(out)
-        if (zip.exists()) {
-            zip.delete()
-        }
-
-        val outZip = ZipOutputStream(FileOutputStream(zip))
-
-        selection.forEach {
-            addToZip(File(it), outZip)
-        }
-
-        outZip.close()
     }
 
     @RequestHandler(route = "/rest/filesystem/zip/", methods = arrayOf("POST"))
@@ -301,13 +285,25 @@ class MainActivity : AppCompatActivity(), WebApplication {
         return File(fsFile, relative)
     }
 
-    fun serveFile(file: File): NanoHTTPD.Response {
+    fun serveFile(file: File): WebServer.Response {
         val mime = NanoHTTPD.getMimeTypeForFile(file.absolutePath)
         val fileName = file.name;
-        val response = NanoHTTPD.newChunkedResponse(NanoHTTPD.Response.Status.OK, mime, file.inputStream())
+        val response = WebServer.Response(NanoHTTPD.Response.Status.OK, mime, file.inputStream(), -1)
         response.addHeader("Content-disposition", "attachement; filename=$fileName")
 
         return response;
+    }
+
+    class PostDownloadDelete (val mFile: File) : WebServer.Response.ResponseEventListener {
+
+        override fun responseDelivered(Response: WebServer.Response) {
+            if (mFile.delete()) {
+                println("Successfully deleted the temp file");
+            } else {
+                println("Failed to delete the temp file");
+            }
+        }
+
     }
 
     @RequestHandler(route = "/rest/filesystem/serve/")
@@ -321,11 +317,11 @@ class MainActivity : AppCompatActivity(), WebApplication {
             return server.notFoundResponse;
         }
 
-
-        return serveFile(path)
+        val res = serveFile(path)
+        return res;
     }
 
-    @RequestHandler(route = "/rest/filesystem/serveAbsolute/")
+    @RequestHandler(route = "/rest/filesystem/serveAndDelete/")
     fun downloadAbsolute(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
         var absPath : String? = sess.parameters["path"]?.get(0) ?: ""
         var path = File(absPath)
@@ -333,7 +329,10 @@ class MainActivity : AppCompatActivity(), WebApplication {
             return server.notFoundResponse;
         }
 
-        return serveFile(path)
+        val res = serveFile(path)
+        val listener = PostDownloadDelete(path)
+        res.listeners.add(listener);
+        return res
     }
 
     fun zipPath(path: File, target: File) {
@@ -342,7 +341,7 @@ class MainActivity : AppCompatActivity(), WebApplication {
 
     @RequestHandler(route = "/rest/filesystem/zip/")
     fun zipResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
-        var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
+        val additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")
         var path = getAbsoluteFile(additionalPath)
@@ -373,7 +372,7 @@ class MainActivity : AppCompatActivity(), WebApplication {
             return server.notFoundResponse;
         }
 
-        var fileList = path.list().map {
+        val fileList = path.list().map {
             val f = File(path, it.toString())
             jsonObject(
                     "name" to f.name,
@@ -389,7 +388,7 @@ class MainActivity : AppCompatActivity(), WebApplication {
                 "files" to jsonArray(fileList)
         )
 
-        var response = NanoHTTPD.newFixedLengthResponse(obj.toString())
+        val response = NanoHTTPD.newFixedLengthResponse(obj.toString())
         response.mimeType = "application/json";
         return response;
     }

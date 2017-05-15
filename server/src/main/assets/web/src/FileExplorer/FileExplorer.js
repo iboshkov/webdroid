@@ -215,7 +215,7 @@ class FileExplorer extends Component {
     }).then(r => r.json()).then(
       data => {
         console.log(data)
-        window.open(`http://localhost:3000/rest/filesystem/serveAbsolute/?path=${data.absolutePath}`, "_blank");
+        window.open(`http://localhost:3000/rest/filesystem/serveAndDelete/?path=${data.absolutePath}`, "_blank");
         this.fetchList(this.state.currentPath)
       }
       ).catch(err => {

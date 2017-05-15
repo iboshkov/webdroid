@@ -1,36 +1,21 @@
 package tech.boshkov.webdroid.server
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.res.AssetManager
 import android.util.Log
-import com.github.salomonbrys.kotson.jsonObject
-import com.google.gson.JsonObject
 
-import com.mitchellbosecke.pebble.PebbleEngine
-import com.mitchellbosecke.pebble.error.PebbleException
-import com.mitchellbosecke.pebble.loader.StringLoader
-import com.mitchellbosecke.pebble.template.PebbleTemplate
 import fi.iki.elonen.NanoHTTPD
-import fi.iki.elonen.NanoHTTPD.HTTPSession
 
-import java.lang.reflect.Method
 import java.net.ServerSocket
 import java.net.URLEncoder
-import java.util.ArrayList
-import java.util.Arrays
-import java.util.Collections
-import java.util.HashMap
-import java.util.ServiceLoader
-import java.util.StringTokenizer
 
 import fi.iki.elonen.WebServerPlugin
 import fi.iki.elonen.WebServerPluginInfo
-import fi.iki.elonen.util.ServerRunner
-import org.json.JSONObject
 import tech.boshkov.webdroid.server.annotations.RequestHandler
 import tech.boshkov.webdroid.server.interfaces.WebApplication
 import java.io.*
+import java.util.*
+
 
 open class WebServer @Throws(IOException::class)
 
@@ -44,6 +29,31 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
     init {
         mAssetMgr = mContext.assets
         this.mApplications = ArrayList<WebApplication>()
+    }
+
+    class Response(status: NanoHTTPD.Response.IStatus, mime: String, data: InputStream, length: Long) : NanoHTTPD.Response(status, mime, data, length) {
+        interface ResponseEventListener {
+            fun responseDelivered(Response: Response);
+        }
+
+        var listeners: MutableList<ResponseEventListener> = mutableListOf<ResponseEventListener>()
+
+        init {
+
+        }
+
+        /**
+         * Sends given response to the socket.
+         */
+        override fun send(outputStream: OutputStream) {
+            super.send(outputStream);
+            println("-----------DONE sending -----------------")
+
+            for (listener in this.listeners) {
+                listener.responseDelivered(this);
+            }
+        }
+
     }
 
     @Throws(IOException::class)
@@ -157,7 +167,7 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
 
                 var handlerMethod = routeMethodMap[handler]
 
-                var res = handlerMethod?.invoke(app, session) as Response;
+                var res = handlerMethod?.invoke(app, session) as NanoHTTPD.Response;
                 res.addHeader("Access-Control-Allow-Origin", "*"); // TODO: Not this.
                 return res;
             }
