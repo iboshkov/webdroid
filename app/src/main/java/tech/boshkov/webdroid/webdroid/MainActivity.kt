@@ -25,6 +25,11 @@ import android.os.Environment
 import com.github.salomonbrys.kotson.*
 import com.google.gson.Gson
 import com.google.gson.JsonObject
+import org.apache.commons.fileupload.FileItem
+import org.apache.commons.fileupload.FileItemFactory
+import org.apache.commons.fileupload.FileItemHeaders
+import org.apache.commons.fileupload.ProgressListener
+import org.apache.commons.fileupload.disk.DiskFileItemFactory
 import org.zeroturnaround.zip.*
 import org.zeroturnaround.zip.FileSource
 import org.zeroturnaround.zip.commons.IOUtils
@@ -59,6 +64,7 @@ class MkdirPayload {
 class MainActivity : AppCompatActivity(), WebApplication {
     internal lateinit var server: WebServer
     internal lateinit var batteryStatus: Intent
+    internal var uploadStatus = jsonObject()
 
     private fun addFileToZip(file: File, zip: ZipOutputStream, basePath: String = "") {
         var name = file.name
@@ -136,6 +142,69 @@ class MainActivity : AppCompatActivity(), WebApplication {
         return NanoHTTPD.newFixedLengthResponse(response.toString());
     }
 
+
+    @RequestHandler(route = "/rest/filesystem/upload/status/")
+    fun filesystemUploadStatus(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        return NanoHTTPD.newFixedLengthResponse(uploadStatus.toString());
+    }
+
+    fun update(sessionId: String, bytesRead: Long, contentLength: Long, itemIdx: Int) {
+        var sessionObj = uploadStatus.getAsJsonObject(sessionId)
+        if (sessionObj == null) {
+            sessionObj = jsonObject()
+        }
+        var itemIdxStr = itemIdx.toString()
+
+        var itemObj = sessionObj.getAsJsonObject(itemIdxStr)
+        if (itemObj == null) {
+            itemObj = jsonObject()
+        }
+
+        println("We are currently reading item " + itemIdx)
+        if (contentLength == -1L) {
+            println("So far, $bytesRead bytes have been read.")
+        } else {
+            println("So far, " + bytesRead + " of " + contentLength
+                    + " bytes have been read.")
+        }
+
+        itemObj.set("read", bytesRead);
+        itemObj.set("length", contentLength);
+
+        sessionObj.set(itemIdxStr, itemObj)
+        uploadStatus.set(sessionId, sessionObj)
+    }
+
+    @RequestHandler(route = "/rest/filesystem/upload/", methods = arrayOf("POST"))
+    fun filesystemUpload(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+        val params = sess.parameters
+        val sessionId = params.get("sess")!!.get(0)
+        val up = NanoFileUpload(DiskFileItemFactory())
+        up.setProgressListener { pBytesRead, pContentLength, pItems ->  update(sessionId, pBytesRead, pContentLength, pItems)}
+        try {
+            val items = up.parseRequest(sess)
+            val destPath = items.find { it.isFormField && it.fieldName == "destPath" }!!.string
+            val destFile = getAbsoluteFile(destPath)
+
+            for (item in items) {
+                val name = item.name
+                if (item.isFormField) {
+                    continue
+                }
+
+                val upDestFile = File(destFile, name)
+                item.write(upDestFile)
+                println("Found file $name")
+            }
+        } finally {
+            uploadStatus.remove(sessionId);
+        }
+
+        val response = jsonObject(
+                "status" to "success"
+        )
+        return NanoHTTPD.newFixedLengthResponse(response.toString());
+    }
 
     @RequestHandler(route = "/rest/filesystem/zipAndDownload/", methods = arrayOf("POST"))
     fun filesystemZipAndDownload(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {

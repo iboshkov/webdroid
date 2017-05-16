@@ -16,7 +16,6 @@ import tech.boshkov.webdroid.server.interfaces.WebApplication
 import java.io.*
 import java.util.*
 
-
 open class WebServer @Throws(IOException::class)
 
 constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Runnable {
@@ -46,7 +45,12 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
          * Sends given response to the socket.
          */
         override fun send(outputStream: OutputStream) {
-            super.send(outputStream);
+            try {
+                super.send(outputStream);
+
+            } finally {
+                println("CANCEL ??")
+            }
             println("-----------DONE sending -----------------")
 
             for (listener in this.listeners) {
@@ -58,7 +62,6 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
 
     @Throws(IOException::class)
     override fun start() {
-
         val options = HashMap<String, String>()
 
         val serviceLoader = ServiceLoader.load(WebServerPluginInfo::class.java)

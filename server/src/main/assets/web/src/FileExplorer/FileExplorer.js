@@ -7,12 +7,12 @@ import Selection from '../Selection/Selection'
 import LazyLoad from 'react-lazy-load';
 import Lightbox from 'react-images';
 import FileGrid from './FileGrid';
+import * as request from 'superagent';
+import FileUploadToasts from '../FileUploadToasts/FileUploadToasts';
+const uuidV1 = require('uuid/v1');
 
 import { Toaster, Alert, Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
-const OurToaster = Toaster.create({
-  className: "my-toaster",
-  position: Position.TOP_LEFT,
-});
+
 
 class FileExplorer extends Component {
   constructor(props) {
@@ -26,6 +26,7 @@ class FileExplorer extends Component {
       files: [],
       backStack: ["/"],
       forwardStack: [],
+      activeUploadSessions: {},
       isLoading: false,
       lightboxImage: null,
       lightboxIsOpen: false,
@@ -67,6 +68,28 @@ class FileExplorer extends Component {
     };
 
     this.fetchList(this.state.currentPath);
+  }
+
+  onDrop(acceptedFiles, rejectedFiles) {
+    acceptedFiles.forEach(file => {
+      let sessionId = uuidV1();
+      let { activeUploadSessions } = this.state;
+
+      let req = request.post(`http://localhost:3000/rest/filesystem/upload/?sess=${sessionId}`);
+      activeUploadSessions[sessionId] = req;
+      req.field("destPath", this.state.currentPath);
+
+      req.attach(file.name, file);
+      req.end((err, res) => {
+        console.log(err, res);
+        console.log(`Removing session ${sessionId}`)
+        delete activeUploadSessions[sessionId];
+        this.setState({ activeUploadSessions });
+        this.fetchList(this.state.currentPath);
+      });
+      window.URL.revokeObjectURL(file.preview);
+    });
+
   }
 
   fetchList(currentPath) {
@@ -136,8 +159,8 @@ class FileExplorer extends Component {
         console.log(data)
         this.fetchList(this.state.currentPath)
         let intent = data.status == 0 ? Intent.SUCCESS : Intent.DANGER
-        this.toaster.show({ intent, iconName: "folder-open", message: data.message });        
-        
+        this.toaster.show({ intent, iconName: "folder-open", message: data.message });
+
       }
       ).catch(err => {
         console.error("Error during file deletion list");
@@ -361,7 +384,7 @@ class FileExplorer extends Component {
               </ul>
             </div>
             <div className="pt-navbar-group pt-align-right">
-              <button disabled={!this.hasSelection()} onClick={() => {this.handleDownloadSelection()}} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
+              <button disabled={!this.hasSelection()} onClick={() => { this.handleDownloadSelection() }} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
               <button disabled={!this.hasSelection()} onClick={() => this.setState({ deleteAlertOpen: true })} className="pt-button pt-minimal pt-intent-danger pt-icon-document">Delete</button>
               <span className="pt-navbar-divider"></span>
               <button className="pt-button pt-minimal pt-icon-add" onClick={() => this.setState({ newFolderAlertOpened: true })}>New Folder</button>
@@ -398,7 +421,7 @@ class FileExplorer extends Component {
               />
             </div>
             <div className="sm-col sm-col-9  with-overflow">
-              <FileGrid onSelectionChanged={this.afterSelect.bind(this)} onItemClicked={this.fileItemClicked.bind(this)} onItemDoubleClicked={this.fileItemDoubleClicked.bind(this)} currentPath={this.state.currentPath} files={files} isLoading={this.state.isLoading} />
+              <FileGrid onDrop={this.onDrop.bind(this)} onSelectionChanged={this.afterSelect.bind(this)} onItemClicked={this.fileItemClicked.bind(this)} onItemDoubleClicked={this.fileItemDoubleClicked.bind(this)} currentPath={this.state.currentPath} files={files} isLoading={this.state.isLoading} />
             </div>
           </div>
           <div className="pt-diralog-body">
@@ -453,13 +476,14 @@ class FileExplorer extends Component {
                   <b>New folder name:</b>
                 </label>
                 <div class="pt-form-content">
-                  <input style={{width: "100%"}} name="folder-name" className="pt-input" onChange={(e) => this.newFolderName = e.target.value} placeholder="Enter the name of the new folder." />
+                  <input style={{ width: "100%" }} name="folder-name" className="pt-input" onChange={(e) => this.newFolderName = e.target.value} placeholder="Enter the name of the new folder." />
                 </div>
               </div>
             </p>
           </Alert>
         </div>
         <Toaster position={Position.TOP_RIGHT} ref={ref => this.toaster = ref} />
+        <FileUploadToasts activeUploadSessions={this.state.activeUploadSessions} />
       </Rnd>
     );
   }

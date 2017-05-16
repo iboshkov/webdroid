@@ -6,7 +6,6 @@ import * as Blueprint from "@blueprintjs/core";
 import Selection from '../Selection/Selection'
 import LazyLoad from 'react-lazy-load';
 import Lightbox from 'react-images';
-
 import { Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 import Dropzone from 'react-dropzone';
 
@@ -38,6 +37,11 @@ class FileGrid extends Component {
     onDrop(acceptedFiles, rejectedFiles) {
         // do stuff with files...
         console.log("Dropped", acceptedFiles, rejectedFiles)
+        if (!this.props.onDrop) {
+            return;
+        }
+
+        this.props.onDrop(acceptedFiles, rejectedFiles);
     }
 
 

@@ -27,7 +27,7 @@ class PhoneStatusWidget extends Component {
                 console.log("Error getting phone data");
             })
         this.fetchStatus();
-        setInterval(this.fetchStatus.bind(this), 10000);
+        // setInterval(this.fetchStatus.bind(this), 10000);
     }
 
     fetchStatus() {
