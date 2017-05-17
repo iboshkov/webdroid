@@ -15,6 +15,7 @@
     "react-lazy-load": "^3.0.12",
     "react-resizable": "^1.7.0",
     "react-rnd": "^5.0.3",
+    "react-router-dom": "^4.1.1",
     "react-selectable": "^1.1.0",
     "react-selection": "^0.1.0",
     "react-transition-group": "^1.1.3",

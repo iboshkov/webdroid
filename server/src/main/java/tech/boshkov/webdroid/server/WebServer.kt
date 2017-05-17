@@ -192,8 +192,11 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
         if (uri.contains("../")) {
             return getForbiddenResponse("Won't serve ../ for security reasons.")
         }
-
+        if (uri == "/") // TODO: Not this
+            uri = "/index.html"
+        
         val path = "web/build" + uri
+
         var response = ""
         var stream: InputStream? = null
         try {

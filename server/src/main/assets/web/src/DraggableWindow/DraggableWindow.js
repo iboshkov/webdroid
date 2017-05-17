@@ -16,7 +16,7 @@ class DraggableWindow extends Component {
 
   fetchList(currentPath) {
     this.setState({ isLoading: true });
-    fetch(`http://localhost:3000/rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
+    fetch(`rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
       data => {
         console.log(`Got files for currentPath ${currentPath}`)
         console.log(data)
@@ -108,7 +108,7 @@ class DraggableWindow extends Component {
   }
 
   download(node) {
-    return `http://localhost:3000/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+    return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
   }
 
   refresh() {

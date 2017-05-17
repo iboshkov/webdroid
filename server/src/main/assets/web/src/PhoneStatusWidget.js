@@ -20,7 +20,7 @@ class PhoneStatusWidget extends Component {
             status: {}
         }
 
-        fetch("http://localhost:3000/rest/phone/info").then(r => r.json())
+        fetch("/rest/phone/info").then(r => r.json())
             .then(json => {
                 this.setState({ summary: json })
             }).catch((response) => {
@@ -31,7 +31,7 @@ class PhoneStatusWidget extends Component {
     }
 
     fetchStatus() {
-        fetch("http://localhost:3000/rest/phone/status").then(r => r.json())
+        fetch("/rest/phone/status").then(r => r.json())
             .then(json => {
                 let intent = Intent.PRIMARY;
                 if (json.percent == 1) intent = Intent.SUCCESS;

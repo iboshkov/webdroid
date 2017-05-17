@@ -75,7 +75,7 @@ class FileExplorer extends Component {
       let sessionId = uuidV1();
       let { activeUploadSessions } = this.state;
 
-      let req = request.post(`http://localhost:3000/rest/filesystem/upload/?sess=${sessionId}`);
+      let req = request.post(`rest/filesystem/upload/?sess=${sessionId}`);
       activeUploadSessions[sessionId] = req;
       req.field("destPath", this.state.currentPath);
 
@@ -94,7 +94,7 @@ class FileExplorer extends Component {
 
   fetchList(currentPath) {
     this.setState({ isLoading: true });
-    fetch(`http://localhost:3000/rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
+    fetch(`rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
       data => {
         console.log(`Got files for currentPath ${currentPath}`)
         console.log(data)
@@ -129,7 +129,7 @@ class FileExplorer extends Component {
   }
 
   deleteAlertConfirmed() {
-    fetch(`http://localhost:3000/rest/filesystem/delete/`, {
+    fetch(`rest/filesystem/delete/`, {
       method: 'delete',
       body: JSON.stringify({
         files: this.state.selection
@@ -149,7 +149,7 @@ class FileExplorer extends Component {
   }
 
   newFolderConfirmed() {
-    fetch(`http://localhost:3000/rest/filesystem/mkdir/`, {
+    fetch(`rest/filesystem/mkdir/`, {
       method: 'POST',
       body: JSON.stringify({
         name: this.relativePath(this.newFolderName)
@@ -230,7 +230,7 @@ class FileExplorer extends Component {
   }
 
   handleDownloadSelection() {
-    fetch(`http://localhost:3000/rest/filesystem/zipAndDownload/`, {
+    fetch(`rest/filesystem/zipAndDownload/`, {
       method: 'post',
       body: JSON.stringify({
         files: this.state.selection
@@ -238,7 +238,7 @@ class FileExplorer extends Component {
     }).then(r => r.json()).then(
       data => {
         console.log(data)
-        window.open(`http://localhost:3000/rest/filesystem/serveAndDelete/?path=${data.absolutePath}`, "_blank");
+        window.open(`rest/filesystem/serveAndDelete/?path=${data.absolutePath}`, "_blank");
         this.fetchList(this.state.currentPath)
       }
       ).catch(err => {
@@ -253,7 +253,7 @@ class FileExplorer extends Component {
   }
 
   download(node) {
-    return `http://localhost:3000/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+    return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
   }
 
   refresh() {

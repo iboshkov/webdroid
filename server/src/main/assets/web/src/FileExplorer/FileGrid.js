@@ -46,7 +46,7 @@ class FileGrid extends Component {
 
 
     download(node) {
-        return `http://localhost:3000/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+        return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
     }
 
     afterSelect(selectedTargets) {
