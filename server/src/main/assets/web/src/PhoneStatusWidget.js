@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './app.css';
+import './App.css';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import ResizableDialog from './ResizableDialog';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
+import { config } from './config';
 
 import { Dialog, Button, Intent, Menu, MenuItem, MenuDivider, Position, ProgressBar, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 
@@ -20,7 +21,7 @@ class PhoneStatusWidget extends Component {
             status: {}
         }
 
-        fetch("/rest/phone/info").then(r => r.json())
+        fetch(`${config.baseUrl}/rest/phone/info`).then(r => r.json())
             .then(json => {
                 this.setState({ summary: json })
             }).catch((response) => {
@@ -31,7 +32,7 @@ class PhoneStatusWidget extends Component {
     }
 
     fetchStatus() {
-        fetch("/rest/phone/status").then(r => r.json())
+        fetch(`${config.baseUrl}/rest/phone/status`).then(r => r.json())
             .then(json => {
                 let intent = Intent.PRIMARY;
                 if (json.percent == 1) intent = Intent.SUCCESS;

@@ -8,6 +8,7 @@ import LazyLoad from 'react-lazy-load';
 import Lightbox from 'react-images';
 import { Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 import Dropzone from 'react-dropzone';
+import { config } from '../config';
 
 class FileGrid extends Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class FileGrid extends Component {
 
 
     download(node) {
-        return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+        return `${config.baseUrl}/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
     }
 
     afterSelect(selectedTargets) {

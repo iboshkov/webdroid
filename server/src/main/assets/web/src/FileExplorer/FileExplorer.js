@@ -8,11 +8,11 @@ import LazyLoad from 'react-lazy-load';
 import Lightbox from 'react-images';
 import FileGrid from './FileGrid';
 import * as request from 'superagent';
-import FileUploadToasts from '../FileUploadToasts/FileUploadToasts';
 const uuidV1 = require('uuid/v1');
 
 import { Toaster, Alert, Dialog, Button, Intent, Position, Overlay, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
 
+import { config } from '../config';
 
 class FileExplorer extends Component {
   constructor(props) {
@@ -75,7 +75,7 @@ class FileExplorer extends Component {
       let sessionId = uuidV1();
       let { activeUploadSessions } = this.state;
 
-      let req = request.post(`rest/filesystem/upload/?sess=${sessionId}`);
+      let req = request.post(`${config.baseUrl}/rest/filesystem/upload/?sess=${sessionId}`);
       activeUploadSessions[sessionId] = req;
       req.field("destPath", this.state.currentPath);
 
@@ -94,7 +94,7 @@ class FileExplorer extends Component {
 
   fetchList(currentPath) {
     this.setState({ isLoading: true });
-    fetch(`rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
+    fetch(`${config.baseUrl}/rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
       data => {
         console.log(`Got files for currentPath ${currentPath}`)
         console.log(data)
@@ -129,7 +129,7 @@ class FileExplorer extends Component {
   }
 
   deleteAlertConfirmed() {
-    fetch(`rest/filesystem/delete/`, {
+    fetch(`${config.baseUrl}/rest/filesystem/delete/`, {
       method: 'delete',
       body: JSON.stringify({
         files: this.state.selection
@@ -149,7 +149,7 @@ class FileExplorer extends Component {
   }
 
   newFolderConfirmed() {
-    fetch(`rest/filesystem/mkdir/`, {
+    fetch(`${config.baseUrl}/rest/filesystem/mkdir/`, {
       method: 'POST',
       body: JSON.stringify({
         name: this.relativePath(this.newFolderName)
@@ -230,7 +230,7 @@ class FileExplorer extends Component {
   }
 
   handleDownloadSelection() {
-    fetch(`rest/filesystem/zipAndDownload/`, {
+    fetch(`${config.baseUrl}/rest/filesystem/zipAndDownload/`, {
       method: 'post',
       body: JSON.stringify({
         files: this.state.selection
@@ -238,7 +238,7 @@ class FileExplorer extends Component {
     }).then(r => r.json()).then(
       data => {
         console.log(data)
-        window.open(`rest/filesystem/serveAndDelete/?path=${data.absolutePath}`, "_blank");
+        window.open(`${config.baseUrl}/rest/filesystem/serveAndDelete/?path=${data.absolutePath}`, "_blank");
         this.fetchList(this.state.currentPath)
       }
       ).catch(err => {
@@ -253,7 +253,7 @@ class FileExplorer extends Component {
   }
 
   download(node) {
-    return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+    return `${config.baseUrl}/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
   }
 
   refresh() {
@@ -341,10 +341,10 @@ class FileExplorer extends Component {
         }}
         minWidth={550}
         minHeight={300}
-        z={1003}
+        z={10}
         dragHandlerClassName={".pt-dialog-header"}
       >
-        <div className="pt-dialog pt-dialog-window">
+        <div className="pt-dialog pt-dialog-window file-explorer">
           <div onDoubleClick={this.setFullscreen.bind(this)} className="pt-dialog-header">
             <span className="pt-icon-large pt-icon-folder-open"></span>
             <h5>Files : {this.state.currentPath}</h5>
@@ -483,7 +483,6 @@ class FileExplorer extends Component {
           </Alert>
         </div>
         <Toaster position={Position.TOP_RIGHT} ref={ref => this.toaster = ref} />
-        <FileUploadToasts activeUploadSessions={this.state.activeUploadSessions} />
       </Rnd>
     );
   }

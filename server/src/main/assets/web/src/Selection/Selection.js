@@ -45,7 +45,7 @@ class Selection extends React.Component {
       top: 0,
       width: 0,
       height: 0,
-      opacity: 0,
+      opacity: 1,
     }
   }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './app.css';
+import './App.css';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 
