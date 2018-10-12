@@ -32,42 +32,12 @@ class FileExplorer extends Component {
       lightboxIsOpen: false,
       deleteAlertOpen: false,
       newFolderAlertOpened: false,
-      selection: [],
-      nodes: [
-        {
-          hasCaret: true,
-          iconName: "folder-close",
-          label: "Folder 0",
-        },
-        {
-          iconName: "folder-close",
-          isExpanded: true,
-          label: <Tooltip content="I'm a folder <3">Folder 1</Tooltip>,
-          childNodes: [
-            { iconName: "document", label: "Item 0" },
-            { iconName: "pt-icon-tag" },
-            {
-              hasCaret: true,
-              iconName: "pt-icon-folder-close",
-              label: <Tooltip content="foo">Folder 2</Tooltip>,
-              childNodes: [
-                { label: "No-Icon Item" },
-                { iconName: "pt-icon-tag", label: "Item 1" },
-                {
-                  hasCaret: true, iconName: "pt-icon-folder-close", label: "Folder 3",
-                  childNodes: [
-                    { iconName: "document", label: "Item 0" },
-                    { iconName: "pt-icon-tag", label: "Item 1" },
-                  ],
-                },
-              ],
-            },
-          ],
-        },
-      ],
+      selection: []
     };
+  }
 
-    this.fetchList(this.state.currentPath);
+  componentDidMount() {
+      this.fetchList(this.state.currentPath);
   }
 
   onDrop(acceptedFiles, rejectedFiles) {
@@ -316,6 +286,7 @@ class FileExplorer extends Component {
 
   render() {
     let { files } = this.state;
+    console.log(files);
     let wholePath = this.state.currentPath;
     let crumbs = ["/", ...wholePath.split(path.sep).filter(str => str !== "")];
     let crumbsWhole = crumbs;
@@ -341,76 +312,60 @@ class FileExplorer extends Component {
         }}
         minWidth={550}
         minHeight={300}
-        z={10}
-        dragHandlerClassName={".pt-dialog-header"}
+        dragHandlerClassName={".bp3-dialog-header"}
       >
-        <div className="pt-dialog pt-dialog-window file-explorer">
-          <div onDoubleClick={this.setFullscreen.bind(this)} className="pt-dialog-header">
-            <span className="pt-icon-large pt-icon-folder-open"></span>
+        <div style={ { width: "100%", height: "100%" } } className="bp3-dialog bp3-dialog-window file-explorer">
+          <div onDoubleClick={this.setFullscreen.bind(this)} className="bp3-dialog-header">
+            <span className="bp3-icon-large bp3-icon-folder-open"></span>
             <h5>Files : {this.state.currentPath}</h5>
-            <button aria-label="Close" className="pt-dialog-close-button pt-icon-small-cross"></button>
+            <button aria-label="Close" className="bp3-dialog-close-button bp3-icon-small-cross"></button>
           </div>
 
-          <nav className="pt-navbar .modifier">
-            <div className="pt-navbar-group pt-align-left">
-              <div className="pt-navbar-heading">WebDroid</div>
-              <input className="pt-input" placeholder="Search files..." type="text" />
+          <nav className="bp3-navbar .modifier">
+            <div className="bp3-navbar-group bp3-align-left">
+              <div className="bp3-navbar-heading">WebDroid</div>
+              <input className="bp3-input" placeholder="Search files..." type="text" />
 
             </div>
-            <div className="pt-navbar-group pt-align-right">
-              <button className="pt-button pt-minimal pt-icon-home">Home</button>
-              <button className="pt-button pt-minimal pt-icon-document">Files</button>
-              <span className="pt-navbar-divider"></span>
-              <button className="pt-button pt-minimal pt-icon-user"></button>
-              <button className="pt-button pt-minimal pt-icon-notifications"></button>
-              <button className="pt-button pt-minimal pt-icon-cog"></button>
+            <div className="bp3-navbar-group bp3-align-right">
+              <button className="bp3-button bp3-minimal bp3-icon-home">Home</button>
+              <button className="bp3-button bp3-minimal bp3-icon-document">Files</button>
+              <span className="bp3-navbar-divider"></span>
+              <button className="bp3-button bp3-minimal bp3-icon-user"></button>
+              <button className="bp3-button bp3-minimal bp3-icon-notifications"></button>
+              <button className="bp3-button bp3-minimal bp3-icon-cog"></button>
             </div>
           </nav>
-          <nav className="pt-navbar .modifier">
-            <div className="pt-navbar-group pt-align-left">
-              <Button disabled={this.state.backStack.length <= 1} onClick={this.navigateBack.bind(this)} className="pt-button pt-minimal pt-icon-arrow-left"></Button>
-              <Button disabled={this.state.forwardStack.length == 0} onClick={this.navigateForward.bind(this)} className="pt-button pt-minimal pt-icon-arrow-right"></Button>
-              <Button disabled={this.state.isLoading} onClick={this.refresh.bind(this)} className="pt-button pt-minimal pt-icon-refresh"></Button>
-              {this.state.isLoading && <Spinner className="pt-small" />}
+          <nav className="bp3-navbar .modifier">
+            <div className="bp3-navbar-group bp3-align-left">
+              <Button disabled={this.state.backStack.length <= 1} onClick={this.navigateBack.bind(this)} className="bp3-button bp3-minimal bp3-icon-arrow-left"></Button>
+              <Button disabled={this.state.forwardStack.length == 0} onClick={this.navigateForward.bind(this)} className="bp3-button bp3-minimal bp3-icon-arrow-right"></Button>
+              <Button disabled={this.state.isLoading} onClick={this.refresh.bind(this)} className="bp3-button bp3-minimal bp3-icon-refresh"></Button>
+              {this.state.isLoading && <Spinner className="bp3-small" />}
             </div>
-            <div className="explorer-breadcrumbs pt-navbar-group pt-align-left">
-              <ul className="pt-breadcrumbs">
+            <div className="explorer-breadcrumbs bp3-navbar-group bp3-align-left">
+              <ul className="bp3-breadcrumbs">
 
-                {breadcrumbs.map(node => {
+                {breadcrumbs.map((node, index) => {
                   return (
-                    <li><a onClick={() => this.navigateAbsolute(node.partsStr, true, true)} href={`#${node.name}`} className="pt-breadcrumb">{node.name}</a></li>
+                    <li><a key={index} onClick={() => this.navigateAbsolute(node.partsStr, true, true)} href={`#${node.name}`} className="bp3-breadcrumb">{node.name}</a></li>
                   )
                 })}
               </ul>
             </div>
-            <div className="pt-navbar-group pt-align-right">
-              <button disabled={!this.hasSelection()} onClick={() => { this.handleDownloadSelection() }} className="pt-button pt-minimal pt-intent-primary pt-icon-download">Download</button>
-              <button disabled={!this.hasSelection()} onClick={() => this.setState({ deleteAlertOpen: true })} className="pt-button pt-minimal pt-intent-danger pt-icon-document">Delete</button>
-              <span className="pt-navbar-divider"></span>
-              <button className="pt-button pt-minimal pt-icon-add" onClick={() => this.setState({ newFolderAlertOpened: true })}>New Folder</button>
+            <div className="bp3-navbar-group bp3-align-right">
+              <button disabled={!this.hasSelection()} onClick={() => { this.handleDownloadSelection() }} className="bp3-button bp3-minimal bp3-intent-primary bp3-icon-download">Download</button>
+              <button disabled={!this.hasSelection()} onClick={() => this.setState({ deleteAlertOpen: true })} className="bp3-button bp3-minimal bp3-intent-danger bp3-icon-document">Delete</button>
+              <span className="bp3-navbar-divider"></span>
+              <button className="bp3-button bp3-minimal bp3-icon-add" onClick={() => this.setState({ newFolderAlertOpened: true })}>New Folder</button>
             </div>
           </nav>
 
           <div style={{ height: "100%" }} className="without-overflow">
             <div className="sm-col sm-col-3 with-overflow sidebar">
               <Menu>
-                <MenuItem
-                  iconName="new-text-box"
-                  onClick={this.handleClick}
-                  text="New text box"
-                />
-                <MenuItem
-                  iconName="new-object"
-                  onClick={this.handleClick}
-                  text="New object"
-                />
-                <MenuItem
-                  iconName="new-link"
-                  onClick={this.handleClick}
-                  text="New link"
-                />
                 <MenuDivider />
-                <MenuItem text="Settings..." iconName="cog" />
+                <MenuItem text="Settings..." />
               </Menu>
               <Tree
                 contents={this.state.nodes}
@@ -424,22 +379,22 @@ class FileExplorer extends Component {
               <FileGrid onDrop={this.onDrop.bind(this)} onSelectionChanged={this.afterSelect.bind(this)} onItemClicked={this.fileItemClicked.bind(this)} onItemDoubleClicked={this.fileItemDoubleClicked.bind(this)} currentPath={this.state.currentPath} files={files} isLoading={this.state.isLoading} />
             </div>
           </div>
-          <div className="pt-diralog-body">
+          <div className="bp3-diralog-body">
           </div>
 
-          <div className="pt-dialog-footer">
+          <div className="bp3-dialog-footer">
 
-            <div className="pt-dialog-footer-actions">
+            <div className="bp3-dialog-footer-actions">
               <div className="status">
                 {this.state.selection.length > 0 && (`${this.state.selection.length} selected items`)}
               </div>
-              <button type="button" className="pt-button">Secondary button</button>
-              <button type="submit" className="pt-button pt-intent-primary">Primary button</button>
+              <button type="button" className="bp3-button">Secondary button</button>
+              <button type="submit" className="bp3-button bp3-intent-primary">Primary button</button>
             </div>
           </div>
 
-          <Overlay className="lightbox pt-overlay-scroll-container" isOpen={this.state.lightboxIsOpen} onClose={() => this.setState({ lightboxIsOpen: false })}>
-            <div className="swing-transition pt-card pt-elevation-4">
+          <Overlay className="lightbox bp3-overlay-scroll-container" isOpen={this.state.lightboxIsOpen} onClose={() => this.setState({ lightboxIsOpen: false })}>
+            <div className="swing-transition bp3-card bp3-elevation-4">
               <img className="lightbox-image" src={this.state.lightboxImage} />
               <Button intent={Intent.DANGER} onClick={this.handleClose}>Close</Button>
               <Button onClick={this.focusButton} style={{ float: "right" }}>Focus button</Button>
@@ -471,12 +426,12 @@ class FileExplorer extends Component {
             onCancel={() => this.setState({ newFolderAlertOpened: false })}
           >
             <p>
-              <div className="pt-form-group pt-intent-danger">
-                <label autofocus={true} className="pt-label" htmlFor="folder-name">
+              <div className="bp3-form-group bp3-intent-danger">
+                <label autofocus={true} className="bp3-label" htmlFor="folder-name">
                   <b>New folder name:</b>
                 </label>
-                <div class="pt-form-content">
-                  <input style={{ width: "100%" }} name="folder-name" className="pt-input" onChange={(e) => this.newFolderName = e.target.value} placeholder="Enter the name of the new folder." />
+                <div class="bp3-form-content">
+                  <input style={{ width: "100%" }} name="folder-name" className="bp3-input" onChange={(e) => this.newFolderName = e.target.value} placeholder="Enter the name of the new folder." />
                 </div>
               </div>
             </p>

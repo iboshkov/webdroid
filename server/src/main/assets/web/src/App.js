@@ -29,18 +29,18 @@ class App extends Component {
         <Desktop />
 
         <div className="center-menu">
-          <nav className="pt-navbar pt-dark .modifier">
-            <div className="pt-navbar-group pt-align-left">
-              <div className="pt-navbar-heading">WebDroid</div>
-              <input className="pt-input full-width" placeholder="Search files..." type="text" />
+          <nav className="bp3-navbar bp3-dark .modifier">
+            <div className="bp3-navbar-group bp3-align-left">
+              <div className="bp3-navbar-heading">WebDroid</div>
+              <input className="bp3-input full-width" placeholder="Search files..." type="text" />
             </div>
-            <div className="pt-navbar-group pt-align-right">
-              <button className="pt-button pt-minimal pt-icon-home">Home</button>
-              <button className="pt-button pt-minimal pt-icon-document">Files</button>
-              <span className="pt-navbar-divider"></span>
-              <button className="pt-button pt-minimal pt-icon-user"></button>
-              <button className="pt-button pt-minimal pt-icon-notifications notif-badge" data-badge="13"></button>
-              <button className="pt-button pt-minimal pt-icon-cog"></button>
+            <div className="bp3-navbar-group bp3-align-right">
+              <button className="bp3-button bp3-minimal bp3-icon-home">Home</button>
+              <button className="bp3-button bp3-minimal bp3-icon-document">Files</button>
+              <span className="bp3-navbar-divider"></span>
+              <button className="bp3-button bp3-minimal bp3-icon-user"></button>
+              <button className="bp3-button bp3-minimal bp3-icon-notifications notif-badge" data-badge="13"></button>
+              <button className="bp3-button bp3-minimal bp3-icon-cog"></button>
             </div>
           </nav>
         </div>

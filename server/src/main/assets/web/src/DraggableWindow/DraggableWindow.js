@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Draggable from 'react-draggable'; // The default
 import Rnd from 'react-rnd/lib/';
 import * as path from 'path';
-import * as Blueprint from "@blueprintjs/core";
 import Selection from '../Selection/Selection'
 import LazyLoad from 'react-lazy-load';
 import { Dialog, Button, Intent, Position, Spinner, NonIdealState, Text, Breadcrumb, Menu, MenuItem, MenuDivider, Tree, Tooltip, Classes, ITreeNode } from "@blueprintjs/core";
+import {config} from "../config";
 /*
     -- TODO --
 */
@@ -16,7 +16,7 @@ class DraggableWindow extends Component {
 
   fetchList(currentPath) {
     this.setState({ isLoading: true });
-    fetch(`rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
+    fetch(`${config.baseUrl}/rest/filesystem/list/?path=${currentPath}`).then(r => r.json()).then(
       data => {
         console.log(`Got files for currentPath ${currentPath}`)
         console.log(data)
@@ -108,7 +108,7 @@ class DraggableWindow extends Component {
   }
 
   download(node) {
-    return `rest/filesystem/serve/?path=${this.relativePath(node.name)}`
+    return `${config.baseUrl}/rest/filesystem/serve/?path=${this.relativePath(node.name)}`
   }
 
   refresh() {
