@@ -63,17 +63,6 @@ class FileGrid extends Component {
         this.props.onSelectionChanged(selectedTargets);
     }
 
-    _onDoubleClick(node) {
-        if (!this.props.onItemDoubleClicked) return;
-
-        this.props.onItemDoubleClicked(node);
-    }
-
-    _onClick(node) {
-        if (!this.props.onItemClicked) return;
-
-        this.props.onItemClicked(node);
-    }
 
     render() {
         let { files, isLoading } = this.props;
@@ -99,7 +88,7 @@ class FileGrid extends Component {
                         let p = node.name;
                         let imageLoading = !this.state.loadedList.includes(p);
                         return (
-                            <FolderItem imageLoading={false} key={index} node={node} />
+                            <FolderItem onItemClicked={this.fileItemClicked.bind(this)} onItemDoubleClicked={this.fileItemDoubleClicked.bind(this)} imageLoading={false} key={index} node={node} />
                         )
                     })}
                     {!isLoading && files.length === 0 && (

@@ -1,0 +1,23 @@
+<app-modal #modalRoot
+           [modalTitle]="'Demo modal'"
+           [width]="500"
+           [minWidth]="500"
+           [minHeight]="200"
+           [maximizable]="true"
+           [visible]="true">
+  <ng-container class="app-modal-toolbar">
+    <p-menubar [model]="menuItems">
+    </p-menubar>
+  </ng-container>
+  <ng-container class="app-modal-body">
+
+    <h3>MODAL DIALOG</h3>
+    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+      Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.</p>
+  </ng-container>
+  <ng-container class="app-modal-footer">
+    <button type="button" class="button button3">Delete</button>&nbsp;
+    <button type="button" class="button button1">Save</button>
+    <button type="button" class="button button2" style="float: right;" (click)="modalRoot.hide()">Close</button>
+  </ng-container>
+</app-modal>

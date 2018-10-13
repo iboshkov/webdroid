@@ -303,17 +303,7 @@ class FileExplorer extends Component {
 
     console.log("currentPathS", breadcrumbs);
     return (
-      <Rnd
-        default={{
-          x: 100,
-          y: 100,
-          width: 1024,
-          height: 600,
-        }}
-        minWidth={550}
-        minHeight={300}
-        dragHandlerClassName={".bp3-dialog-header"}
-      >
+    <div>
         <div style={ { width: "100%", height: "100%" } } className="bp3-dialog bp3-dialog-window file-explorer">
           <div onDoubleClick={this.setFullscreen.bind(this)} className="bp3-dialog-header">
             <span className="bp3-icon-large bp3-icon-folder-open"></span>
@@ -348,7 +338,7 @@ class FileExplorer extends Component {
 
                 {breadcrumbs.map((node, index) => {
                   return (
-                    <li><a key={index} onClick={() => this.navigateAbsolute(node.partsStr, true, true)} href={`#${node.name}`} className="bp3-breadcrumb">{node.name}</a></li>
+                    <li key={index}><a onClick={() => this.navigateAbsolute(node.partsStr, true, true)} href={`#${node.name}`} className="bp3-breadcrumb">{node.name}</a></li>
                   )
                 })}
               </ul>
@@ -438,7 +428,7 @@ class FileExplorer extends Component {
           </Alert>
         </div>
         <Toaster position={Position.TOP_RIGHT} ref={ref => this.toaster = ref} />
-      </Rnd>
+      </div>
     );
   }
 }

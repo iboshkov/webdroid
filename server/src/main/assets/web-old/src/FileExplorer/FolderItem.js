@@ -18,6 +18,17 @@ class FolderItem extends Component {
         return false;
     }
 
+    _onDoubleClick(node) {
+        if (!this.props.onItemDoubleClicked) return;
+
+        this.props.onItemDoubleClicked(node);
+    }
+
+    _onClick(node) {
+        if (!this.props.onItemClicked) return;
+
+        this.props.onItemClicked(node);
+    }
     render() {
         const { node, imageLoading } = this.props;
         let icon = node.isDirectory ? "folder-open" : "document";
