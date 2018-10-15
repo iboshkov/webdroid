@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {WindowComponent} from './window/window.component';
+import {FileGridComponent} from './file-grid/file-grid.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: WindowComponent
+    path: 'files',
+    outlet: 'explorer',
+    component: WindowComponent,
+    children: [
+      {
+        path: '**',
+        component: FileGridComponent
+      }
+    ]
   }
 ];
 

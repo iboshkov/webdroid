@@ -5,6 +5,7 @@ import {MenubarModule} from 'primeng/menubar';
 import { ExplorerRoutingModule } from './explorer-routing.module';
 import { WindowComponent } from './window/window.component';
 import {SharedModule} from '../shared/shared.module';
+import { FileGridComponent } from './file-grid/file-grid.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,6 @@ import {SharedModule} from '../shared/shared.module';
     MenubarModule,
     SharedModule
   ],
-  declarations: [WindowComponent]
+  declarations: [WindowComponent, FileGridComponent]
 })
 export class ExplorerModule { }
