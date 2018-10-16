@@ -1,0 +1,12 @@
+.row {
+  background: #eaf1f5;
+
+  flex-flow: row wrap;
+  align-items: flex-start;
+}
+
+.card {
+  align-self: flex-start;
+  margin-top: 20px;
+  margin-left: 20px;
+}

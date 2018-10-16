@@ -14,6 +14,10 @@ const routes: Routes = [
         component: FileGridComponent
       }
     ]
+  },
+  {
+    path: '**',
+    redirectTo: 'files'
   }
 ];
 

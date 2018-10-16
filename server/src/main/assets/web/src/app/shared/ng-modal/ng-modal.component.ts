@@ -12,6 +12,7 @@ export class NgModalComponent implements OnInit, AfterViewChecked {
 
   @Input() modalTitle: string;
   @Input() width: any;
+  @Input() height: any;
   @Input() zIndex: number;
   @Input() minWidth = 260;
   @Input() minHeight = 200;

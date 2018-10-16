@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ExplorerModule} from './explorer/explorer.module';
+import {ButtonModule, CoreModule, InputModule, ModalModule} from 'truly-ui';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import {ExplorerModule} from './explorer/explorer.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+    CoreModule.forRoot({theme: 'default'}),
     ExplorerModule,
     AppRoutingModule
   ],

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
+import {ModalService} from 'truly-ui';
+import {FileGridComponent} from '../file-grid/file-grid.component';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-window',
@@ -6,17 +9,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./window.component.scss']
 })
 export class WindowComponent implements OnInit {
-  items = [
-    {label: 'Categories'},
-    {label: 'Sports'},
-    {label: 'Football'},
-    {label: 'Countries'},
-    {label: 'Spain'},
-    {label: 'F.C. Barcelona'},
-    {label: 'Squad'},
-    {label: 'Lionel Messi', url: 'https://en.wikipedia.org/wiki/Lionel_Messi'}
-  ];
-
   menuItems = [
     {
       label: 'File',
@@ -41,10 +33,33 @@ export class WindowComponent implements OnInit {
       ]
     }
   ];
+  public breadcrumbs: MenuItem[] = [];
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
   }
 
+  segmentsChanged(segments) {
+    console.log('Activated ', segments);
+    this.breadcrumbs = [{ icon: 'pi pi-home', routerLink: [{}] }];
+
+      this.breadcrumbs = this.breadcrumbs.concat(segments.map((segment, idx) => {
+        let routerLink = ['../'.repeat(segments.length - idx - 1)];
+        const isLast = idx === segments.length - 1;
+        if (isLast) { routerLink = ['.']; }
+
+        return {
+          label: segment.path,
+          routerLink
+        };
+    }));
+  }
+
+  routeActivated(grid: FileGridComponent) {
+    console.log('Activated ', grid);
+
+    grid.locationSegmentsChanged.subscribe(this.segmentsChanged.bind(this));
+  }
 }

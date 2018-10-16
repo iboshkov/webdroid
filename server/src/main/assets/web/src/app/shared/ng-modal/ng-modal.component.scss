@@ -25,7 +25,7 @@
   outline: none;
   background-color: #fefefe;
   padding: 0;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .ui-modal-header {
@@ -40,12 +40,10 @@
   flex-wrap: nowrap;
   align-items: center;
   height: 48px;
-  box-shadow: 0px 0px 5px #000;
 }
 
 .ui-modal-body {
   position: relative;
-  padding: 10px 16px;
   max-height: calc(100vh - 200px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;

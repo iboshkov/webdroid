@@ -6,18 +6,23 @@ import {environment as env} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 
 export class FSItem {
-
+  name: string;
+  path: string;
+  absolutePath: string;
+  cannonicalPath: string;
+  isDirectory: boolean;
+  isFile: boolean;
 }
 
 @Injectable({
-  providedIn: ExplorerModule
+  providedIn: 'root'
 })
 export class FilesystemService {
 
   constructor(private http: HttpClient) { }
 
   getItemsInPath(path: string): Observable<FSItem[]> {
-    return this.http.get<any>(`${env.baseUrl}/rest/filesystem/list?path=${path}`)
+    return this.http.get<any>(`${env.baseUrl}/rest/filesystem/list/?path=${path}`)
       .pipe(map(response => response.files)) as Observable<FSItem[]>;
   }
 }
