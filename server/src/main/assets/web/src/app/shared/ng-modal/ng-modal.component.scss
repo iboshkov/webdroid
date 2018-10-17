@@ -1,4 +1,5 @@
 @import "../../scss-mixins/utils";
+@import "../../theme/variables";
 
 .window-icon {
   margin-left: 10px;
@@ -40,17 +41,21 @@
   flex-wrap: nowrap;
   align-items: center;
   height: 48px;
+  color: #ccc;
 }
 
 .ui-modal-body {
   position: relative;
-  max-height: calc(100vh - 200px);
+  max-height: 25vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  background: $window-background;
 }
 
 .ui-modal-footer {
   padding: 15px;
+  background: $window-background;
+  @include border-bottom-radius(5px);
 }
 
 .ui-titlebar {

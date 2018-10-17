@@ -1,10 +1,31 @@
 @import "~bootstrap/scss/bootstrap";
+@import "./app/theme/variables.scss";
+
+@import "~placeholder-loading/src/scss/placeholder-loading.scss";
+
 
 html, body {
   min-height: 100vh;
   height: auto;
   margin: 0;
+  color: $text-color;
 }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+.ui-breadcrumb-chevron:nth-child(2),
+.ui-breadcrumb-chevron:nth-child(4),
+.ui-breadcrumb-chevron:nth-child(6),
+.ui-breadcrumb-chevron:nth-child(8)
+{
+  border: 1px solid red !important;
+  display: none;
+}
+
+.ph-item {
+  border: none !important;
+  padding: 10px !important;
+  margin: 0 !important;
+  background: transparent !important;
+}

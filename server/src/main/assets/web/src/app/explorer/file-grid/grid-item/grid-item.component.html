@@ -1,0 +1,17 @@
+<div style="height: 149px; width: 180px;" class="card text-center">
+  <div class="card-block">
+    <div *ngIf="model.loading" class="ph-item">
+      <div class="ph-col-12">
+        <div style="height: 85px; padding: 0;" class="ph-picture"></div>
+        <div class="ph-row">
+          <div class="ph-col-12"></div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="!model.loading">
+      <h2><i class="fa fa-folder-open fa-2x"></i></h2>
+      <span class="card-title">{{model.name}}</span>
+    </ng-container>
+  </div>
+</div>

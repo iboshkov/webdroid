@@ -6,12 +6,13 @@ import {environment as env} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 
 export class FSItem {
-  name: string;
-  path: string;
-  absolutePath: string;
-  cannonicalPath: string;
-  isDirectory: boolean;
-  isFile: boolean;
+  name?: string;
+  path?: string;
+  absolutePath?: string;
+  cannonicalPath?: string;
+  isDirectory?: boolean;
+  isFile?: boolean;
+  loading?: boolean;
 }
 
 @Injectable({

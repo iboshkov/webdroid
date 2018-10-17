@@ -1,14 +1,9 @@
 <dts-select-container #container="dts-select-container" [(selectedItems)]="selectedItems" (select)="onSelect($event)">
-  <div class="row">
-
-    <div *ngFor="let item of files" class="col-auto justify-content-start">
-      <div [dtsSelectItem]="item" [routerLink]="['./', item.name]" style="height: 149px; width: 192px;" class="card text-center">
-        <div class="card-block">
-          <h2><i class="fa fa-folder-o fa-3x"></i></h2>
-          <span class="card-title">{{item.name}}</span>
-        </div>
+  <div class="row ">
+    <div *ngFor="let item of files" class="grid-item col-auto">
+      <div [dtsSelectItem]="item" [routerLink]="['./', item.name]">
+        <app-grid-item [model]="item"></app-grid-item>
       </div>
     </div>
-
   </div>
 </dts-select-container>

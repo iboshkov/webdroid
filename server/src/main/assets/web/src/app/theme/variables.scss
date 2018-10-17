@@ -1,0 +1,8 @@
+$window-background: #eaf1f5;
+$primary-color: #137cbd;
+$primary-shadow-color: darken( $primary-color, 10%);
+$primary-accent-color: #48aff0;
+
+$ph-color: $window-background;//lighten(desaturate($primary-accent-color, 50%), 30%);
+
+$text-color: #182026;

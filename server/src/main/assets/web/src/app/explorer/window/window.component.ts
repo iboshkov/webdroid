@@ -2,6 +2,9 @@ import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
 import {ModalService} from 'truly-ui';
 import {FileGridComponent} from '../file-grid/file-grid.component';
 import {MenuItem} from 'primeng/api';
+import {map} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FSItem} from '../filesystem.service';
 
 @Component({
   selector: 'app-window',
@@ -34,32 +37,23 @@ export class WindowComponent implements OnInit {
     }
   ];
   public breadcrumbs: MenuItem[] = [];
+  public selected: FSItem[] = [];
 
   constructor(
-  ) { }
-
-  ngOnInit() {
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
   }
 
-  segmentsChanged(segments) {
-    console.log('Activated ', segments);
-    this.breadcrumbs = [{ icon: 'pi pi-home', routerLink: [{}] }];
-
-      this.breadcrumbs = this.breadcrumbs.concat(segments.map((segment, idx) => {
-        let routerLink = ['../'.repeat(segments.length - idx - 1)];
-        const isLast = idx === segments.length - 1;
-        if (isLast) { routerLink = ['.']; }
-
-        return {
-          label: segment.path,
-          routerLink
-        };
-    }));
+  ngOnInit() {
   }
 
   routeActivated(grid: FileGridComponent) {
     console.log('Activated ', grid);
 
-    grid.locationSegmentsChanged.subscribe(this.segmentsChanged.bind(this));
+    grid.breadcrumbsChanged.subscribe(crumbs => this.breadcrumbs = crumbs);
+    grid.selectionChanged.subscribe(selection => {
+      this.selected = selection;
+    });
   }
 }

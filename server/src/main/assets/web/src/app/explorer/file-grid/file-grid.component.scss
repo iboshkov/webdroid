@@ -1,12 +1,32 @@
-.row {
-  background: #eaf1f5;
+@import "../../theme/variables";
 
+.row {
   flex-flow: row wrap;
   align-items: flex-start;
+  margin: 0;
 }
 
 .card {
   align-self: flex-start;
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.grid-item {
+  margin-top: 20px;
+}
+
+.dts-select-item.selected {
+  border: 1px solid $primary-accent-color !important;
+  box-shadow: 0 4px 8px 0 transparentize($primary-shadow-color, 0.8), 0 6px 20px 0 transparentize($primary-shadow-color, 0.9) !important;
+}
+
+.dts-select-item:hover {
+  border: 1px solid $primary-accent-color !important;
+  box-shadow: 0 4px 8px 0 transparentize($primary-shadow-color, 0.9), 0 6px 20px 0 transparentize($primary-shadow-color, 0.95) !important;
+}
+
+.dts-select-item {
+  border: 1px solid #ebebeb !important;
+  transition: 0.3s;
 }

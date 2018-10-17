@@ -2,3 +2,8 @@
   border-top-left-radius: $property;
   border-top-right-radius: $property;
 }
+
+@mixin border-bottom-radius($property) {
+  border-bottom-left-radius: $property;
+  border-bottom-right-radius: $property;
+}
