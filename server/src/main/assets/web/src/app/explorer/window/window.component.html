@@ -10,32 +10,22 @@
   <ng-container class="app-modal-toolbar">
     <!--<p-menubar [model]="menuItems">-->
     <!--</p-menubar>-->
-    <p-toolbar *ngIf="false">
-      <div class="ui-toolbar-group-left">
-        <button pButton type="button" label="New" icon="pi pi-plus"></button>
-        <button pButton type="button" label="Upload" icon="pi pi-upload" class="ui-button-success"></button>
-
-        <i class="pi pi-bars"></i>
+    <div class="toolbar row no-gutters">
+      <div class="col">
+        <app-breadcrumbs [crumbs]="breadcrumbs"></app-breadcrumbs>
       </div>
-
-      <div class="ui-toolbar-group-right">
-        <button  pButton type="button" icon="pi pi-search"></button>
-        <button pButton type="button" icon="pi pi-calendar" class="ui-button-success"></button>
-        <button pButton type="button" icon="pi pi-times" class="ui-button-danger"></button>
-        <a [routerLink]="['../']">LOL</a>
-        <a [routerLink]="['not-found']">Not found</a>
-        <a [routerLink]="['DCIM', 'Camera']">Not found</a>
+      <div class="col" style="flex: 0 0 230px;">
+        <div class="btn-toolbar" role="toolbar">
+          <button type="button" class="btn intent-primary"><i class="fas fa-arrow-circle-down"></i> Download</button>
+          <button type="button" class="btn intent-danger"><i class="far fa-file"></i> Delete</button>
+        </div>
       </div>
-    </p-toolbar>
-    <app-breadcrumbs [crumbs]="breadcrumbs"></app-breadcrumbs>
+    </div>
   </ng-container>
-  <ng-container class="app-modal-body">
+  <ng-container class="app-modal-body" #modalBody>
     <router-outlet (activate)="routeActivated($event)"></router-outlet>
   </ng-container>
   <ng-container class="app-modal-footer">
-    <span *ngIf="selected.length > 0">{{ selected.length }} selected items</span>
-    <button type="button" class="button button3">Delete</button>&nbsp;
-    <button type="button" class="button button1">Save</button>
-    <button type="button" class="button button2" style="float: right;" [routerLink]="['']">Close</button>
+    <span [style.opacity]="selected.length > 0 ? 1 : 0">{{ selected.length }} selected items</span>
   </ng-container>
 </app-modal>

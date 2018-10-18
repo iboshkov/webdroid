@@ -1,7 +1,7 @@
 <dts-select-container #container="dts-select-container" [(selectedItems)]="selectedItems" (select)="onSelect($event)">
   <div class="row ">
     <div *ngFor="let item of files" class="grid-item col-auto">
-      <div [dtsSelectItem]="item" [routerLink]="['./', item.name]">
+      <div [dtsSelectItem]="item" (dblclick)="navigate(['./', item.name])">
         <app-grid-item [model]="item"></app-grid-item>
       </div>
     </div>

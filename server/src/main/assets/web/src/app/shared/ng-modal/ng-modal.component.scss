@@ -24,7 +24,7 @@
   top: 0;
   max-width: 100%;
   outline: none;
-  background-color: #fefefe;
+  background: $window-background;
   padding: 0;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
@@ -33,15 +33,14 @@
   @include border-top-radius(5px);
   position: relative;
   padding: 2px 16px;
-  background-color: white;
-  color: #000;
   user-select: none;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   height: 48px;
-  color: #ccc;
+  color: $text-color;
+  background: white;
 }
 
 .ui-modal-body {

@@ -89,6 +89,10 @@ export class FileGridComponent implements OnInit, AfterViewInit {
     this.selectionChanged.emit($event);
   }
 
+  async navigate(commands: any) {
+    await this.router.navigate(commands, { relativeTo: this.route });
+  }
+
   ngAfterViewInit(): void {
     setInterval(() => this.container.update(), 300);
   }

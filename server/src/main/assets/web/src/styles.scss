@@ -23,9 +23,38 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   display: none;
 }
 
+.ui-breadcrumb-chevron:nth-child(10) {
+  margin-left: -8px !important;
+  //border: 1px solid green !important;
+}
+
 .ph-item {
   border: none !important;
   padding: 10px !important;
   margin: 0 !important;
   background: transparent !important;
+}
+.ui-menuitem-link .fas, .ui-menuitem-link .pi {
+  padding: 7px;
+  margin-left: -10px;
+  transition: 0.4s;
+}
+
+.ui-menuitem-link .fas:hover, .ui-menuitem-link .pi:hover {
+  background: $window-background !important;
+}
+
+.ui-breadcrumb {
+  height: $toolbar-height !important;
+  line-height: ($toolbar-height / 2 + 5px) !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.intent-primary {
+  color: $text-intent-primary;
+}
+
+.intent-danger {
+  color: $text-intent-danger;
 }

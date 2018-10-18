@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, ElementRef, OnInit} from '@angular/core';
 import {ModalService} from 'truly-ui';
 import {FileGridComponent} from '../file-grid/file-grid.component';
 import {MenuItem} from 'primeng/api';
@@ -12,6 +12,8 @@ import {FSItem} from '../filesystem.service';
   styleUrls: ['./window.component.scss']
 })
 export class WindowComponent implements OnInit {
+  public modalBody: ElementRef;
+
   menuItems = [
     {
       label: 'File',
@@ -51,7 +53,12 @@ export class WindowComponent implements OnInit {
   routeActivated(grid: FileGridComponent) {
     console.log('Activated ', grid);
 
-    grid.breadcrumbsChanged.subscribe(crumbs => this.breadcrumbs = crumbs);
+    grid.breadcrumbsChanged.subscribe(crumbs => {
+      this.breadcrumbs = crumbs;
+      if (this.modalBody) {
+        this.modalBody.nativeElement.scrollTo(0, 0);
+      }
+    });
     grid.selectionChanged.subscribe(selection => {
       this.selected = selection;
     });

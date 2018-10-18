@@ -1,0 +1,30 @@
+@import "../../theme/variables";
+* {
+  transition: 0.4s;
+}
+
+.btn-toolbar {
+  .btn {
+    height: $toolbar-btn-height;
+    font-size: 12px;
+    background: transparent;
+  }
+
+  .btn.intent-primary:hover {
+    background: transparentize($primary-intent-color, 0.9);
+  }
+  .btn.intent-danger:hover {
+    background: transparentize($danger-color, 0.9);
+  }
+
+  height: $toolbar-height;
+  padding-top: 10px;
+}
+
+.toolbar {
+  background: white;
+  height: $toolbar-height;
+  border-color: $toolbar-border-color;
+  border-width: $toolbar-border-width;
+  border-style: solid;
+}

@@ -1,8 +1,23 @@
-$window-background: #eaf1f5;
+$primary-neutral-color: #eaf1f5;
+$window-background: $primary-neutral-color;
 $primary-color: #137cbd;
+$danger-color: #c23030;
+$primary-intent-color: darken($primary-neutral-color, 50%);
 $primary-shadow-color: darken( $primary-color, 10%);
 $primary-accent-color: #48aff0;
 
-$ph-color: $window-background;//lighten(desaturate($primary-accent-color, 50%), 30%);
+$ph-color: $primary-neutral-color;//lighten(desaturate($primary-accent-color, 50%), 30%);
 
 $text-color: #182026;
+
+$text-intent-primary: darken($primary-neutral-color, 50%);
+$background-intent-primary: darken($primary-neutral-color, 50%);
+
+$text-intent-danger: $danger-color;
+$danger-neutral-color: desaturate($danger-color, 50%);
+$background-intent-danger: darken($danger-neutral-color, 50%);
+
+$toolbar-height: 50px;
+$toolbar-btn-height: 30px;
+$toolbar-border-color: #CCC;
+$toolbar-border-width: 1px 0px 1px 0px;

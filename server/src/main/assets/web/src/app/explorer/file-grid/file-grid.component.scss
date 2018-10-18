@@ -26,6 +26,12 @@
   box-shadow: 0 4px 8px 0 transparentize($primary-shadow-color, 0.9), 0 6px 20px 0 transparentize($primary-shadow-color, 0.95) !important;
 }
 
+.dts-select-item:active {
+  transform: scale(0.98, 0.98);
+  border: 1px solid transparentize($primary-accent-color, 0.3) !important;
+  box-shadow: 0 2px 6px 0 transparentize($primary-shadow-color, 0.9), 0 4px 18px 0 transparentize($primary-shadow-color, 0.95) !important;
+}
+
 .dts-select-item {
   border: 1px solid #ebebeb !important;
   transition: 0.3s;
