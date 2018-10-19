@@ -11,7 +11,7 @@ const routes: Routes = [
     component: WindowComponent,
     children: [
       {
-        path: "not-found",
+        path: 'not-found',
         component: EmptyFolderComponent,
       },
       {

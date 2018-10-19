@@ -34,13 +34,14 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
   margin: 0 !important;
   background: transparent !important;
 }
+
 .ui-menuitem-link .fas, .ui-menuitem-link .pi {
   padding: 7px;
   margin-left: -10px;
   transition: 0.4s;
 }
 
-.ui-menuitem-link .fas:hover, .ui-menuitem-link .pi:hover {
+.ui-menuitem-link .fas:hover:not(.fa-spin), .ui-menuitem-link .pi:hover {
   background: $window-background !important;
 }
 
@@ -57,4 +58,8 @@ body { margin: 0; font-family: 'Roboto', sans-serif; }
 
 .intent-danger {
   color: $text-intent-danger;
+}
+
+.intent-default {
+  color: $primary-intent-color;
 }

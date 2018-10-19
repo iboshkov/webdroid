@@ -14,13 +14,15 @@
       <div class="col">
         <app-breadcrumbs [crumbs]="breadcrumbs"></app-breadcrumbs>
       </div>
-      <div class="col" style="flex: 0 0 230px;">
+      <div class="col" style="flex: 0 0 280px;">
         <div class="btn-toolbar" role="toolbar">
+          <button type="button" class="btn intent-default"><i class="fas fa-folder-plus"></i> New Folder</button>
           <button type="button" class="btn intent-primary"><i class="fas fa-arrow-circle-down"></i> Download</button>
           <button type="button" class="btn intent-danger"><i class="far fa-file"></i> Delete</button>
         </div>
       </div>
     </div>
+    <input placeholder="Filter files..." type="text" title="fileFilter" class="form-control" [(ngModel)]="fileFilter" (ngModelChange)="filterChanged($event)" />
   </ng-container>
   <ng-container class="app-modal-body" #modalBody>
     <router-outlet (activate)="routeActivated($event)"></router-outlet>

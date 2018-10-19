@@ -15,11 +15,16 @@ import {ButtonModule} from 'primeng/button';
 import { EmptyFolderComponent } from './empty-folder/empty-folder.component';
 import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import { GridItemComponent } from './file-grid/grid-item/grid-item.component';
+import {DialogModule} from 'primeng/dialog';
+import {ImageViewerModule} from '@hallysonh/ngx-imageviewer';
+import {FormsModule} from '@angular/forms';
+import {DeferModule} from 'primeng/defer';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    FormsModule,
     ExplorerRoutingModule,
     BreadcrumbModule,
     ButtonModule,
@@ -27,7 +32,10 @@ import { GridItemComponent } from './file-grid/grid-item/grid-item.component';
     SharedModule,
     DragToSelectModule.forRoot(),
     ToolbarModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    DialogModule,
+    ImageViewerModule,
+    DeferModule
   ],
   declarations: [WindowComponent, FileGridComponent, ExplorerComponent, BreadcrumbsComponent, EmptyFolderComponent, GridItemComponent],
   entryComponents: [WindowComponent]

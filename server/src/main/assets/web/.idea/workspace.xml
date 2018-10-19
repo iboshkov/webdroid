@@ -3,17 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="617c65e5-bd25-432d-84ff-b95efa8da959" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/explorer.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/explorer.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/explorer/filesystem.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/filesystem.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/window/window.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/window/window.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/window/window.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/window/window.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/explorer/window/window.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/explorer/window/window.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/theme/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/theme/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -37,21 +41,21 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="8" />
-          <entry key="html" value="27" />
-          <entry key="js" value="1" />
-          <entry key="json" value="7" />
-          <entry key="scss" value="35" />
-          <entry key="ts" value="46" />
+          <entry key="html" value="30" />
+          <entry key="js" value="3" />
+          <entry key="json" value="9" />
+          <entry key="scss" value="36" />
+          <entry key="ts" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="27" />
-          <entry key="JSON" value="7" />
-          <entry key="JavaScript" value="1" />
-          <entry key="SCSS" value="35" />
-          <entry key="TypeScript" value="46" />
+          <entry key="HTML" value="30" />
+          <entry key="JSON" value="9" />
+          <entry key="JavaScript" value="3" />
+          <entry key="SCSS" value="36" />
+          <entry key="TypeScript" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -63,21 +67,21 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="153" />
-          <entry key="html" value="1491" />
-          <entry key="json" value="96" />
-          <entry key="scss" value="3037" />
-          <entry key="ts" value="2648" />
+          <entry key="html" value="2216" />
+          <entry key="json" value="137" />
+          <entry key="scss" value="3128" />
+          <entry key="ts" value="5538" />
           <entry key="txt" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="153" />
-          <entry key="HTML" value="1491" />
-          <entry key="JSON" value="96" />
+          <entry key="HTML" value="2216" />
+          <entry key="JSON" value="137" />
           <entry key="PLAIN_TEXT" value="29" />
-          <entry key="SCSS" value="3037" />
-          <entry key="TypeScript" value="2648" />
+          <entry key="SCSS" value="3128" />
+          <entry key="TypeScript" value="5538" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -143,8 +147,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="19" column="56" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="56" />
+            <state relative-caret-position="276">
+              <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#app-modal#0;n#!!top" expanded="true" />
               </folding>
@@ -153,10 +157,43 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="712">
+              <caret line="44" column="3" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+              <folding>
+                <element signature="e#0#86#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="321">
+              <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#96#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="298">
+              <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -165,22 +202,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#74#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="138">
+              <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+            <state relative-caret-position="238">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -188,56 +222,34 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.scss">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+            <state relative-caret-position="229">
+              <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/filesystem.service.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.spec.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="26" selection-start-column="26" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/theme/variables.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#73#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,10 +258,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>an</find>
-      <find>styles</find>
-      <find>ExplorerModule</find>
-      <find>afterviewcheck</find>
       <find>minheight</find>
       <find>less</find>
       <find>style.css</find>
@@ -274,8 +282,12 @@
       <find>selected</find>
       <find>background</find>
       <find>$text-intent-primary</find>
-      <find>breadcr</find>
       <find>$danger-colordan</find>
+      <find>maximize</find>
+      <find>breadcr</find>
+      <find>node_modules/hammerjs/hammer.js</find>
+      <find>fs</find>
+      <find>IMAGEFILES</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -301,32 +313,32 @@
         <option value="$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/shared.module.ts" />
         <option value="$PROJECT_DIR$/src/app/app.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts" />
         <option value="$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.html" />
         <option value="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.html" />
         <option value="$PROJECT_DIR$/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/src/app/app.component.html" />
-        <option value="$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts" />
-        <option value="$PROJECT_DIR$/src/app/explorer/filesystem.service.ts" />
-        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss" />
         <option value="$PROJECT_DIR$/src/app/scss-mixins/utils.scss" />
         <option value="$PROJECT_DIR$/src/app/style.scss" />
-        <option value="$PROJECT_DIR$/angular.json" />
-        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html" />
-        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/explorer/window/window.component.ts" />
         <option value="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.scss" />
         <option value="$PROJECT_DIR$/src/app/explorer/toolbar/toolbar.component.html" />
-        <option value="$PROJECT_DIR$/src/app/explorer/explorer.module.ts" />
         <option value="$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.scss" />
         <option value="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss" />
-        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html" />
-        <option value="$PROJECT_DIR$/src/styles.scss" />
-        <option value="$PROJECT_DIR$/src/app/explorer/window/window.component.html" />
         <option value="$PROJECT_DIR$/src/app/theme/variables.scss" />
         <option value="$PROJECT_DIR$/src/app/explorer/window/window.component.scss" />
+        <option value="$PROJECT_DIR$/src/styles.scss" />
+        <option value="$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss" />
+        <option value="$PROJECT_DIR$/angular.json" />
+        <option value="$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/window/window.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html" />
+        <option value="$PROJECT_DIR$/src/app/explorer/window/window.component.html" />
+        <option value="$PROJECT_DIR$/src/app/explorer/explorer.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/filesystem.service.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html" />
       </list>
     </option>
   </component>
@@ -366,6 +378,82 @@
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="location" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@angular" type="462c0819:PsiDirectoryNode" />
+              <item name="router" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="@types" type="462c0819:PsiDirectoryNode" />
+              <item name="node" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="hammerjs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="hammerjs" type="462c0819:PsiDirectoryNode" />
+              <item name="hammer.js" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
               <item name="web" type="b2602c69:ProjectViewProjectNode" />
@@ -430,21 +518,6 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
-              <item name="ng-modal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="web" type="b2602c69:ProjectViewProjectNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="theme" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -461,7 +534,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="variable&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/theme/variables.scss&#10;styles.&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.scss&#10;ng-modal&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;file-gr&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/file-grid/file-grid.component.scss&#10;package.js&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/package.json&#10;styles&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.scss&#10;blueprint-icons.scss&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/node_modules/@blueprintjs/icons/src/blueprint-icons.scss&#10;ангулар&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;w&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.html&#10;angular&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;explorer&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer.module.ts&#10;app.com&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/app.component.ts&#10;envir&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;e&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/node_modules/primeng/components/common/menuitem.d.ts&#10;env&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;window.com&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.ts&#10;explorer.mo&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer.module.ts&#10;ng-&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;envi&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;scss&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/explorer/breadcrumbs/breadcrumbs.component.scss&#10;window.&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.html&#10;styles.sc&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/styles.scss&#10;modal&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;environ&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;index.&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/index.html&#10;app.mo&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/app.module.ts&#10;angular.j&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/angular.json&#10;angul&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;index.html&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/index.html&#10;desktop&#9;null&#9;null&#10;app/explorer/explorer.module&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer-routing.module.ts&#10;style.css&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.css" />
+    <property name="SearchEverywhereHistoryKey" value="filesyst&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/filesystem.service.ts&#10;angular.&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;hammer&#9;null&#9;null&#10;ex&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer.module.ts&#10;package.json&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/package.json&#10;fsitem&#9;null&#9;null&#10;sty&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.scss&#10;variable&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/theme/variables.scss&#10;styles.&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.scss&#10;ng-modal&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;file-gr&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/file-grid/file-grid.component.scss&#10;package.js&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/package.json&#10;styles&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.scss&#10;blueprint-icons.scss&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/node_modules/@blueprintjs/icons/src/blueprint-icons.scss&#10;ангулар&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;w&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.html&#10;angular&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;explorer&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer.module.ts&#10;app.com&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/app.component.ts&#10;envir&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;e&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/node_modules/primeng/components/common/menuitem.d.ts&#10;env&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;window.com&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.ts&#10;explorer.mo&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer.module.ts&#10;ng-&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;envi&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;scss&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/explorer/breadcrumbs/breadcrumbs.component.scss&#10;window.&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/explorer/window/window.component.html&#10;styles.sc&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/styles.scss&#10;modal&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/shared/ng-modal/ng-modal.component.scss&#10;environ&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/environments/environment.ts&#10;index.&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/index.html&#10;app.mo&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/src/app/app.module.ts&#10;angular.j&#9;FILE&#9;file:///Users/ilija/git/webdroid/server/src/main/assets/web/angular.json&#10;angul&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/angular.json&#10;index.html&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/index.html&#10;desktop&#9;null&#9;null&#10;app/explorer/explorer.module&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/app/explorer/explorer-routing.module.ts&#10;style.css&#9;FILE&#9;file://C:/Users/mindc/source/repos/webdroid/server/src/main/assets/web/src/styles.css" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -576,7 +649,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63011000" />
+    <option name="totallyTimeSpent" value="73451000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -610,21 +683,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/interactjs/index.d.ts" />
-    <entry file="file://$PROJECT_DIR$/src/app/app.component.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/core-scripting.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="299" column="14" selection-start-line="299" selection-start-column="14" selection-end-line="299" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/truly-ui/components/listbox/listbox.d.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/ngx-drag-to-select/ngx-drag-to-select.metadata.json" />
     <entry file="file://$PROJECT_DIR$/src/app/shared/shared.module.ts">
       <provider selected="true" editor-type-id="text-editor">
@@ -632,26 +690,6 @@
           <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#55#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2450">
-          <caret line="148" column="9" selection-start-line="148" selection-start-column="2" selection-end-line="148" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#159#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -738,23 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/filesystem.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="14" column="15" selection-start-line="14" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer.module.spec.ts">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -801,13 +822,6 @@
     <entry file="file://$PROJECT_DIR$/node_modules/@blueprintjs/icons/src/generated/_icon-variables.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/scss-mixins/utils.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -818,57 +832,10 @@
     <entry file="file://$PROJECT_DIR$/src/app/style.scss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/angular.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="31" column="70" lean-forward="true" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.spec.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <folding>
-            <element signature="e#0#73#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="69" column="6" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="451">
           <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#74#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -879,13 +846,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer.module.ts">
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="436">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/theme/variables.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="21" selection-start-line="5" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -896,58 +874,178 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/breadcrumbs/breadcrumbs.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        <state relative-caret-position="207">
+          <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#55#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/ng-modal/ng-modal.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="310" column="115" selection-start-line="310" selection-start-column="115" selection-end-line="310" selection-end-column="115" />
+          <folding>
+            <element signature="e#0#159#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@types/node/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="4550" column="15" selection-start-line="4550" selection-start-column="15" selection-end-line="4550" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/router/src/router_state.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/common/src/location/location.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="94" column="24" selection-start-line="94" selection-start-column="11" selection-end-line="94" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/hammerjs/src/hammer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="9" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/hammerjs/hammer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1725">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="34" column="46" selection-start-line="34" selection-start-column="15" selection-end-line="34" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="56" />
+        <state relative-caret-position="276">
+          <caret line="24" column="39" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#ng-container#0;n#app-modal#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/theme/variables.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" column="32" lean-forward="true" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        <state relative-caret-position="712">
+          <caret line="44" column="3" lean-forward="true" selection-start-line="44" selection-start-column="3" selection-end-line="44" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#86#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/explorer.module.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
+        <state relative-caret-position="298">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/explorer/window/window.component.scss">
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="52" selection-start-line="13" selection-start-column="52" selection-end-line="13" selection-end-column="52" />
+        <state relative-caret-position="138">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#96#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.spec.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#73#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/filesystem.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/file-grid.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="52" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="15" column="2" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/explorer/file-grid/grid-item/grid-item.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

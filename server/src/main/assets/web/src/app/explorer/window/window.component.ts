@@ -13,33 +13,10 @@ import {FSItem} from '../filesystem.service';
 })
 export class WindowComponent implements OnInit {
   public modalBody: ElementRef;
-
-  menuItems = [
-    {
-      label: 'File',
-      items: [{
-        label: 'New',
-        icon: 'pi pi-fw pi-plus',
-        items: [
-          {label: 'Project'},
-          {label: 'Other'},
-        ]
-      },
-        {label: 'Open'},
-        {label: 'Quit'}
-      ]
-    },
-    {
-      label: 'Edit',
-      icon: 'pi pi-fw pi-pencil',
-      items: [
-        {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-        {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-      ]
-    }
-  ];
   public breadcrumbs: MenuItem[] = [];
   public selected: FSItem[] = [];
+  public fileFilter = '';
+  private fileGrid: FileGridComponent;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,8 +28,7 @@ export class WindowComponent implements OnInit {
   }
 
   routeActivated(grid: FileGridComponent) {
-    console.log('Activated ', grid);
-
+    this.fileGrid = grid;
     grid.breadcrumbsChanged.subscribe(crumbs => {
       this.breadcrumbs = crumbs;
       if (this.modalBody) {
@@ -62,5 +38,9 @@ export class WindowComponent implements OnInit {
     grid.selectionChanged.subscribe(selection => {
       this.selected = selection;
     });
+  }
+
+  filterChanged($event) {
+    this.fileGrid.fileFilter = this.fileFilter;
   }
 }

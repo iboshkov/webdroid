@@ -1,9 +1,12 @@
 <dts-select-container #container="dts-select-container" [(selectedItems)]="selectedItems" (select)="onSelect($event)">
   <div class="row ">
-    <div *ngFor="let item of files" class="grid-item col-auto">
-      <div [dtsSelectItem]="item" (dblclick)="navigate(['./', item.name])">
+    <div *ngFor="let item of filteredFiles" class="grid-item col-auto">
+      <div [dtsSelectItem]="item" (click)="itemClicked(item)" (dblclick)="navigate(['./', item.name])">
         <app-grid-item [model]="item"></app-grid-item>
       </div>
     </div>
   </div>
 </dts-select-container>
+<p-dialog *ngIf="selectedItem" [modal]="true" [header]="selectedItem.name" appendTo="body" [(visible)]="showImageBox">
+  <ngx-imageviewer [src]="selectedItem.serveUrl"></ngx-imageviewer>
+</p-dialog>

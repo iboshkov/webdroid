@@ -1,4 +1,4 @@
-<div style="height: 149px; width: 180px;" class="card text-center">
+<div style="width: 180px;" class="card text-center">
   <div class="card-block">
     <div *ngIf="model.loading" class="ph-item">
       <div class="ph-col-12">
@@ -10,7 +10,14 @@
     </div>
 
     <ng-container *ngIf="!model.loading">
-      <h2><i class="fa fa-folder-open fa-2x"></i></h2>
+      <div *ngIf="model.isImage" pDefer (onLoad)="initDeferred()">
+        <ng-template>
+          <img class="card-img-top" [src]="url" alt="Card image cap">
+        </ng-template>
+      </div>
+
+      <h2><i *ngIf="model.isDirectory" class="fa fa-folder-open fa-2x"></i></h2>
+      <h2><i *ngIf="model.isFile && !model.isImage" class="far fa-file fa-2x"></i></h2>
       <span class="card-title">{{model.name}}</span>
     </ng-container>
   </div>
