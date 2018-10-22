@@ -1,6 +1,6 @@
 <dts-select-container #container="dts-select-container" [(selectedItems)]="selectedItems" (select)="onSelect($event)">
-  <div class="row ">
-    <div *ngFor="let item of filteredFiles" class="grid-item col-auto">
+  <div class="row">
+    <div *ngFor="let item of filteredFiles" class="grid-item col-auto" lazy-load-images>
       <div [dtsSelectItem]="item" (click)="itemClicked(item)" (dblclick)="navigate(['./', item.name])">
         <app-grid-item [model]="item"></app-grid-item>
       </div>

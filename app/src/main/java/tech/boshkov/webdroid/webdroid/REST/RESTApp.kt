@@ -203,7 +203,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
         return NanoHTTPD.newFixedLengthResponse(response.toString())
     }
 
-    @RequestHandler(route = "/rest/filesystem/delete/", methods = arrayOf("DELETE"))
+    @RequestHandler(route = "/rest/filesystem/delete/", methods = arrayOf("DELETE", "POST"))
     fun filesystemDelete(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
         val gson = Gson()

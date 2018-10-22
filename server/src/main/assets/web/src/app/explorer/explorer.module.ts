@@ -19,6 +19,9 @@ import {DialogModule} from 'primeng/dialog';
 import {ImageViewerModule} from '@hallysonh/ngx-imageviewer';
 import {FormsModule} from '@angular/forms';
 import {DeferModule} from 'primeng/defer';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   imports: [
@@ -35,7 +38,8 @@ import {DeferModule} from 'primeng/defer';
     ProgressSpinnerModule,
     DialogModule,
     ImageViewerModule,
-    DeferModule
+    LazyLoadImagesModule,
+    ConfirmDialogModule
   ],
   declarations: [WindowComponent, FileGridComponent, ExplorerComponent, BreadcrumbsComponent, EmptyFolderComponent, GridItemComponent],
   entryComponents: [WindowComponent]

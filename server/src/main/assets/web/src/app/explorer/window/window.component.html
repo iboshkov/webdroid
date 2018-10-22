@@ -16,9 +16,9 @@
       </div>
       <div class="col" style="flex: 0 0 280px;">
         <div class="btn-toolbar" role="toolbar">
-          <button type="button" class="btn intent-default"><i class="fas fa-folder-plus"></i> New Folder</button>
-          <button type="button" class="btn intent-primary"><i class="fas fa-arrow-circle-down"></i> Download</button>
-          <button type="button" class="btn intent-danger"><i class="far fa-file"></i> Delete</button>
+          <button type="button" class="btn intent-default" (click)="showNewFolderDialog = true"><i class="fas fa-folder-plus"></i> New Folder</button>
+          <button type="button" class="btn intent-primary" (click)="handleDownload()"><i class="fas fa-arrow-circle-down"></i> Download</button>
+          <button type="button" class="btn intent-danger" (click)="handleDelete()"><i class="far fa-file"></i> Delete</button>
         </div>
       </div>
     </div>
@@ -31,3 +31,19 @@
     <span [style.opacity]="selected.length > 0 ? 1 : 0">{{ selected.length }} selected items</span>
   </ng-container>
 </app-modal>
+
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle" width="425" #cd>
+  <p-footer>
+    <button type="button" pButton class="ui-button-danger" icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
+
+<p-dialog [modal]="true" width="425" header="Create a new folder" appendTo="body" [(visible)]="showNewFolderDialog">
+  <input type="text"  [(ngModel)]="newFolderName" name="folderName" />
+  <p-footer>
+    <button type="button" pButton class="ui-button-danger" icon="pi pi-check" label="Yes" (click)="handleNewFolder()"></button>
+    <button type="button" pButton icon="pi pi-times" label="No" (click)="showNewFolderDialog = false"></button>
+  </p-footer>
+</p-dialog>
+

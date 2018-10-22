@@ -164,6 +164,7 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
                 {
                     var res = newFixedLengthResponse("OK - NOTE: This is a workaround for preflight requests.");
                     res.addHeader("Access-Control-Allow-Origin", "*"); // TODO: Not this.
+                    res.addHeader("Access-Control-Allow-Headers", "*"); // TODO: Not this.
                     res.addHeader("Access-Control-Allow-Methods", methods.joinToString(separator=",")); // TODO: Not this.
                     return res;
                 }
@@ -195,7 +196,7 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
         if (uri == "/") // TODO: Not this
             uri = "/index.html"
         
-        val path = "web/build" + uri
+        val path = "web/dist/web" + uri
 
         var response = ""
         var stream: InputStream? = null

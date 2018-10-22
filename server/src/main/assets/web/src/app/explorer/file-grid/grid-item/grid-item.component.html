@@ -10,10 +10,8 @@
     </div>
 
     <ng-container *ngIf="!model.loading">
-      <div *ngIf="model.isImage" pDefer (onLoad)="initDeferred()">
-        <ng-template>
-          <img class="card-img-top" [src]="url" alt="Card image cap">
-        </ng-template>
+      <div *ngIf="model.isImage">
+        <img class="card-img-top" [attr.data-src]="model.serveUrl" alt="Card image cap">
       </div>
 
       <h2><i *ngIf="model.isDirectory" class="fa fa-folder-open fa-2x"></i></h2>
