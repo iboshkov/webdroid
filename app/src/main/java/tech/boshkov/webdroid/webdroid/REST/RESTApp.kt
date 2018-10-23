@@ -25,6 +25,10 @@ import java.io.FileOutputStream
 import java.io.IOException
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
+import me.everything.providers.android.telephony.Conversation;
+import me.everything.providers.android.telephony.TelephonyProvider;
+import me.everything.providers.core.Data;
+import tech.boshkov.webdroid.server.UrlMatch
 
 
 class FSFile {
@@ -101,9 +105,8 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
         }
     }
 
-
     @RequestHandler(route = "/rest/filesystem/zip/", methods = arrayOf("POST"))
-    fun filesystemZip(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemZip(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
         val gson = Gson()
 
@@ -116,7 +119,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
 
 
     @RequestHandler(route = "/rest/filesystem/upload/status/")
-    fun filesystemUploadStatus(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemUploadStatus(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         return NanoHTTPD.newFixedLengthResponse(uploadStatus.toString());
     }
 
@@ -148,7 +151,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/upload/", methods = arrayOf("POST"))
-    fun filesystemUpload(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemUpload(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val params = sess.parameters
         val sessionId = params.get("sess")!!.get(0)
         val up = NanoFileUpload(DiskFileItemFactory())
@@ -179,7 +182,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/zipAndDownload/", methods = arrayOf("POST"))
-    fun filesystemZipAndDownload(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemZipAndDownload(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
         val gson = Gson()
 
@@ -204,7 +207,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/delete/", methods = arrayOf("DELETE", "POST"))
-    fun filesystemDelete(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemDelete(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
         val gson = Gson()
         val payload = gson.fromJson<FileListPayload>(body);
@@ -237,7 +240,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/mkdir/", methods = arrayOf("POST"))
-    fun filesystemMkdir(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun filesystemMkdir(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val body = server.parseTextBody(sess)
         val gson = Gson()
         val payload = gson.fromJson<MkdirPayload>(body);
@@ -270,7 +273,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
 
 
     @RequestHandler(route = "/rest/phone/status")
-    fun testRequest(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
+    fun testRequest(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch): NanoHTTPD.Response {
         // Are we charging / charged?
         val ifilter = IntentFilter(Intent.ACTION_BATTERY_CHANGED)
         batteryStatus = mContext.registerReceiver(null, ifilter)
@@ -298,7 +301,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/phone/info")
-    fun phoneInfo(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
+    fun phoneInfo(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch): NanoHTTPD.Response {
         // Are we charging / charged?
         var name = android.os.Build.MODEL;
 
@@ -348,7 +351,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/serve/")
-    fun downloadResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun downloadResource(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")
@@ -363,7 +366,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/serveAndDelete/")
-    fun downloadAbsolute(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun downloadAbsolute(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         var absPath : String? = sess.parameters["path"]?.get(0) ?: ""
         var path = File(absPath)
         if (!path.exists()) {
@@ -381,7 +384,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
     }
 
     @RequestHandler(route = "/rest/filesystem/zip/")
-    fun zipResource(sess: NanoHTTPD.IHTTPSession) : NanoHTTPD.Response {
+    fun zipResource(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch) : NanoHTTPD.Response {
         val additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")
@@ -403,7 +406,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
 
 
     @RequestHandler(route = "/rest/filesystem/list/")
-    fun fileSystemList(sess: NanoHTTPD.IHTTPSession): NanoHTTPD.Response {
+    fun fileSystemList(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch): NanoHTTPD.Response {
         var additionalPath  : String? = sess.parameters["path"]?.get(0) ?: ""
 
         println("Path: $additionalPath")

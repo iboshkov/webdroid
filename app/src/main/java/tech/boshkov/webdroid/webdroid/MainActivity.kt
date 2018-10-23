@@ -10,6 +10,7 @@ import tech.boshkov.webdroid.server.*
 import android.content.pm.PackageManager
 import kotlinx.android.synthetic.main.activity_main.*
 import tech.boshkov.webdroid.webdroid.REST.RESTApp
+import tech.boshkov.webdroid.webdroid.REST.SMSController
 import java.io.*
 
 
@@ -25,6 +26,8 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.READ_EXTERNAL_STORAGE,
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.READ_SMS,
+                Manifest.permission.SEND_SMS,
                 Manifest.permission.INTERNET);
         for (permission in permissionList) {
             val permissionCheck = ContextCompat.checkSelfPermission(this, permission);
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity() {
             mServer = WebServer(this, 3000)
             mRest = RESTApp(this, mServer)
             mServer.registerApplication(mRest)
+            mServer.registerApplication(SMSController(this, mServer))
             mServer.start()
             val ip = getLocalIpAddress()
             txtIp.text = "Open your browser to: http://$ip:3000"

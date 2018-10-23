@@ -42,6 +42,7 @@ dependencies {
     compile 'com.mitchellbosecke:pebble:2.1.0'
     compile 'com.github.salomonbrys.kotson:kotson:2.5.0'
     compile 'org.zeroturnaround:zt-zip:1.11'
+    compile 'me.everything:providers-android:1.0.1'
 
     testCompile 'junit:junit:4.12'
     compile project(path: ':server')

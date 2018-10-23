@@ -156,22 +156,27 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
                 }
 
                 Log.d(TAG, "Checking if $route == $uri")
-                if (route != uri) {
+                val matcher = UrlPattern(route);
+                val matches = matcher.matches(uri);
+                if (!matches) {
                     continue
                 }
 
                 if (sessMethod == "OPTIONS")
                 {
-                    var res = newFixedLengthResponse("OK - NOTE: This is a workaround for preflight requests.");
+                    val res = newFixedLengthResponse("OK - NOTE: This is a workaround for preflight requests.");
                     res.addHeader("Access-Control-Allow-Origin", "*"); // TODO: Not this.
                     res.addHeader("Access-Control-Allow-Headers", "*"); // TODO: Not this.
                     res.addHeader("Access-Control-Allow-Methods", methods.joinToString(separator=",")); // TODO: Not this.
                     return res;
                 }
 
-                var handlerMethod = routeMethodMap[handler]
 
-                var res = handlerMethod?.invoke(app, session) as NanoHTTPD.Response;
+
+                val handlerMethod = routeMethodMap[handler]
+                val urlParams = matcher.match(uri)
+
+                val res = handlerMethod?.invoke(app, session, urlParams) as NanoHTTPD.Response;
                 res.addHeader("Access-Control-Allow-Origin", "*"); // TODO: Not this.
                 return res;
             }
