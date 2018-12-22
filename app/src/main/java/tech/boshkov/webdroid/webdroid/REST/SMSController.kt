@@ -1,40 +1,21 @@
 package tech.boshkov.webdroid.webdroid.REST
 
 import android.content.Context
-import android.content.Intent
-import android.content.IntentFilter
-import android.os.BatteryManager
-import android.os.Environment
-import com.github.salomonbrys.kotson.fromJson
 import com.github.salomonbrys.kotson.jsonArray
 import com.github.salomonbrys.kotson.jsonObject
-import com.github.salomonbrys.kotson.set
-import com.google.gson.Gson
 import com.google.gson.JsonObject
 import fi.iki.elonen.NanoHTTPD
-import org.apache.commons.fileupload.disk.DiskFileItemFactory
-import org.zeroturnaround.zip.ZipUtil
-import org.zeroturnaround.zip.commons.IOUtils
-import tech.boshkov.webdroid.server.NanoFileUpload
 import tech.boshkov.webdroid.server.WebServer
 import tech.boshkov.webdroid.server.annotations.RequestHandler
-import tech.boshkov.webdroid.server.interfaces.WebApplication
-import java.io.File
-import java.io.FileInputStream
-import java.io.FileOutputStream
-import java.io.IOException
-import java.util.zip.ZipEntry
-import java.util.zip.ZipOutputStream
-import me.everything.providers.android.telephony.Conversation;
+import tech.boshkov.webdroid.server.interfaces.Controller
 import me.everything.providers.android.telephony.Sms
 import me.everything.providers.android.telephony.TelephonyProvider;
-import me.everything.providers.core.Data;
 import tech.boshkov.webdroid.server.UrlMatch
 
 /**
  * Created by iboshkov on 5/17/2017.
  */
-class SMSController(private val mContext: Context, private val server: WebServer) : WebApplication {
+class SMSController(private val mContext: Context, private val server: WebServer) : Controller {
     @RequestHandler(route = "/rest/conversations/")
     fun getConversations(sess: NanoHTTPD.IHTTPSession, urlParams: UrlMatch): NanoHTTPD.Response? {
         val telephonyProvider = TelephonyProvider(mContext)

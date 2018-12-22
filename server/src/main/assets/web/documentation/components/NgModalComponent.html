@@ -1,0 +1,3584 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>web documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">web documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>NgModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/ng-modal/ng-modal.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-modal</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>ng-modal.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>ng-modal.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#contentzIndex">contentzIndex</a>
+                            </li>
+                            <li>
+                                <a href="#dragging">dragging</a>
+                            </li>
+                            <li>
+                                <a href="#executePostDisplayActions">executePostDisplayActions</a>
+                            </li>
+                            <li>
+                                <a href="#lastPageX">lastPageX</a>
+                            </li>
+                            <li>
+                                <a href="#lastPageY">lastPageY</a>
+                            </li>
+                            <li>
+                                <a href="#maximized">maximized</a>
+                            </li>
+                            <li>
+                                <a href="#modalBody">modalBody</a>
+                            </li>
+                            <li>
+                                <a href="#modalFooter">modalFooter</a>
+                            </li>
+                            <li>
+                                <a href="#modalHeader">modalHeader</a>
+                            </li>
+                            <li>
+                                <a href="#modalRoot">modalRoot</a>
+                            </li>
+                            <li>
+                                <a href="#preMaximizeBodyHeight">preMaximizeBodyHeight</a>
+                            </li>
+                            <li>
+                                <a href="#preMaximizePageX">preMaximizePageX</a>
+                            </li>
+                            <li>
+                                <a href="#preMaximizePageY">preMaximizePageY</a>
+                            </li>
+                            <li>
+                                <a href="#preMaximizeRootHeight">preMaximizeRootHeight</a>
+                            </li>
+                            <li>
+                                <a href="#preMaximizeRootWidth">preMaximizeRootWidth</a>
+                            </li>
+                            <li>
+                                <a href="#resizingE">resizingE</a>
+                            </li>
+                            <li>
+                                <a href="#resizingS">resizingS</a>
+                            </li>
+                            <li>
+                                <a href="#resizingSE">resizingSE</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addEventListeners">addEventListeners</a>
+                            </li>
+                            <li>
+                                <a href="#calcBodyHeight">calcBodyHeight</a>
+                            </li>
+                            <li>
+                                <a href="#center">center</a>
+                            </li>
+                            <li>
+                                <a href="#endDrag">endDrag</a>
+                            </li>
+                            <li>
+                                <a href="#endResize">endResize</a>
+                            </li>
+                            <li>
+                                <a href="#findAncestor">findAncestor</a>
+                            </li>
+                            <li>
+                                <a href="#focusLastModal">focusLastModal</a>
+                            </li>
+                            <li>
+                                <a href="#getMaxModalIndex">getMaxModalIndex</a>
+                            </li>
+                            <li>
+                                <a href="#hide">hide</a>
+                            </li>
+                            <li>
+                                <a href="#initDrag">initDrag</a>
+                            </li>
+                            <li>
+                                <a href="#initResizeE">initResizeE</a>
+                            </li>
+                            <li>
+                                <a href="#initResizeS">initResizeS</a>
+                            </li>
+                            <li>
+                                <a href="#initResizeSE">initResizeSE</a>
+                            </li>
+                            <li>
+                                <a href="#maximize">maximize</a>
+                            </li>
+                            <li>
+                                <a href="#moveOnTop">moveOnTop</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewChecked">ngAfterViewChecked</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCloseIcon">onCloseIcon</a>
+                            </li>
+                            <li>
+                                <a href="#onDrag">onDrag</a>
+                            </li>
+                            <li>
+                                <a href="#onMousemove">onMousemove</a>
+                            </li>
+                            <li>
+                                <a href="#onMouseup">onMouseup</a>
+                            </li>
+                            <li>
+                                <a href="#onResize">onResize</a>
+                            </li>
+                            <li>
+                                <a href="#onTouchend">onTouchend</a>
+                            </li>
+                            <li>
+                                <a href="#onTouchmove">onTouchmove</a>
+                            </li>
+                            <li>
+                                <a href="#onWindowResize">onWindowResize</a>
+                            </li>
+                            <li>
+                                <a href="#removeEventListener">removeEventListener</a>
+                            </li>
+                            <li>
+                                <a href="#revertMaximize">revertMaximize</a>
+                            </li>
+                            <li>
+                                <a href="#show">show</a>
+                            </li>
+                            <li>
+                                <a href="#toggleMaximize">toggleMaximize</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#backdrop">backdrop</a>
+                            </li>
+                            <li>
+                                <a href="#height">height</a>
+                            </li>
+                            <li>
+                                <a href="#maximizable">maximizable</a>
+                            </li>
+                            <li>
+                                <a href="#minHeight">minHeight</a>
+                            </li>
+                            <li>
+                                <a href="#minWidth">minWidth</a>
+                            </li>
+                            <li>
+                                <a href="#modalTitle">modalTitle</a>
+                            </li>
+                            <li>
+                                <a href="#scrollTop">scrollTop</a>
+                            </li>
+                            <li>
+                                <a href="#styleClass">styleClass</a>
+                            </li>
+                            <li>
+                                <a href="#visible">visible</a>
+                            </li>
+                            <li>
+                                <a href="#width">width</a>
+                            </li>
+                            <li>
+                                <a href="#zIndex">zIndex</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#close">close</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostBindings</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#class">class</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>HostListeners</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#keydown.esc">keydown.esc</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(element: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, ngZone: <a href="https://angular.io/api/core/NgZone" target="_blank">NgZone</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>element</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ngZone</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/NgZone" target="_blank" >NgZone</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="backdrop"></a>
+                        <code>backdrop</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:21</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="height"></a>
+                        <code>height</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="maximizable"></a>
+                        <code>maximizable</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:20</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="minHeight"></a>
+                        <code>minHeight</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>200</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:18</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="minWidth"></a>
+                        <code>minWidth</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>260</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:17</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="modalTitle"></a>
+                        <code>modalTitle</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:13</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="scrollTop"></a>
+                        <code>scrollTop</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:19</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="styleClass"></a>
+                        <code>styleClass</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="visible"></a>
+                        <code>visible</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="width"></a>
+                        <code>width</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:14</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="zIndex"></a>
+                        <code>zIndex</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="close"></a>
+                        <code>close</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3>HostBindings</h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="class"></a>
+                        <span class="name">
+                            <b>
+                            class
+                            </b>
+                            <a href="#class"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>class:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:33</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3>HostListeners</h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="keydown.esc"></a>
+                        <span class="name">
+                            <b>
+                            keydown.esc
+                            </b>
+                            <a href="#keydown.esc"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Arguments : </i><code>'$event' </code>
+                        </td>
+                    </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>keydown.esc(event)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:98</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="addEventListeners"></a>
+                        <span class="name">
+                            <b>
+                            addEventListeners
+                            </b>
+                            <a href="#addEventListeners"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>addEventListeners()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:77</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="calcBodyHeight"></a>
+                        <span class="name">
+                            <b>
+                            calcBodyHeight
+                            </b>
+                            <a href="#calcBodyHeight"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>calcBodyHeight()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="255" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:255</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="center"></a>
+                        <span class="name">
+                            <b>
+                            center
+                            </b>
+                            <a href="#center"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>center()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:149</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="endDrag"></a>
+                        <span class="name">
+                            <b>
+                            endDrag
+                            </b>
+                            <a href="#endDrag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>endDrag()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:193</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="endResize"></a>
+                        <span class="name">
+                            <b>
+                            endResize
+                            </b>
+                            <a href="#endResize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>endResize()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:248</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="findAncestor"></a>
+                        <span class="name">
+                            <b>
+                            findAncestor
+                            </b>
+                            <a href="#findAncestor"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>findAncestor(el, cls)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="281" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:281</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>el</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>cls</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="focusLastModal"></a>
+                        <span class="name">
+                            <b>
+                            focusLastModal
+                            </b>
+                            <a href="#focusLastModal"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>focusLastModal()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="274" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:274</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="getMaxModalIndex"></a>
+                        <span class="name">
+                            <b>
+                            getMaxModalIndex
+                            </b>
+                            <a href="#getMaxModalIndex"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getMaxModalIndex()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:262</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hide"></a>
+                        <span class="name">
+                            <b>
+                            hide
+                            </b>
+                            <a href="#hide"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>hide()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:142</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initDrag"></a>
+                        <span class="name">
+                            <b>
+                            initDrag
+                            </b>
+                            <a href="#initDrag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initDrag(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:169</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initResizeE"></a>
+                        <span class="name">
+                            <b>
+                            initResizeE
+                            </b>
+                            <a href="#initResizeE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initResizeE(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:205</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initResizeS"></a>
+                        <span class="name">
+                            <b>
+                            initResizeS
+                            </b>
+                            <a href="#initResizeS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initResizeS(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="198" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:198</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initResizeSE"></a>
+                        <span class="name">
+                            <b>
+                            initResizeSE
+                            </b>
+                            <a href="#initResizeSE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initResizeSE(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:212</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maximize"></a>
+                        <span class="name">
+                            <b>
+                            maximize
+                            </b>
+                            <a href="#maximize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>maximize()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="300" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:300</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="moveOnTop"></a>
+                        <span class="name">
+                            <b>
+                            moveOnTop
+                            </b>
+                            <a href="#moveOnTop"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>moveOnTop()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="328" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:328</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngAfterViewChecked"></a>
+                        <span class="name">
+                            <b>
+                            ngAfterViewChecked
+                            </b>
+                            <a href="#ngAfterViewChecked"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngAfterViewChecked()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:70</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:59</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onCloseIcon"></a>
+                        <span class="name">
+                            <b>
+                            onCloseIcon
+                            </b>
+                            <a href="#onCloseIcon"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onCloseIcon(event: <a href="https://angular.io/api/router/Event" target="_blank">Event</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="287" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:287</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/router/Event" target="_blank" >Event</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDrag"></a>
+                        <span class="name">
+                            <b>
+                            onDrag
+                            </b>
+                            <a href="#onDrag"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDrag(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="178" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:178</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onMousemove"></a>
+                        <span class="name">
+                            <b>
+                            onMousemove
+                            </b>
+                            <a href="#onMousemove"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onMousemove(event: MouseEvent)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:109</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code>MouseEvent</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onMouseup"></a>
+                        <span class="name">
+                            <b>
+                            onMouseup
+                            </b>
+                            <a href="#onMouseup"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onMouseup()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="114" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:114</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onResize"></a>
+                        <span class="name">
+                            <b>
+                            onResize
+                            </b>
+                            <a href="#onResize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onResize(pageX: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, pageY: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="219" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:219</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>pageX</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>pageY</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onTouchend"></a>
+                        <span class="name">
+                            <b>
+                            onTouchend
+                            </b>
+                            <a href="#onTouchend"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onTouchend()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:125</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onTouchmove"></a>
+                        <span class="name">
+                            <b>
+                            onTouchmove
+                            </b>
+                            <a href="#onTouchmove"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onTouchmove(event: TouchEvent)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:119</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                        <td>
+                                                                    <code>TouchEvent</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onWindowResize"></a>
+                        <span class="name">
+                            <b>
+                            onWindowResize
+                            </b>
+                            <a href="#onWindowResize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onWindowResize()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:104</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="removeEventListener"></a>
+                        <span class="name">
+                            <b>
+                            removeEventListener
+                            </b>
+                            <a href="#removeEventListener"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>removeEventListener()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:88</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="revertMaximize"></a>
+                        <span class="name">
+                            <b>
+                            revertMaximize
+                            </b>
+                            <a href="#revertMaximize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>revertMaximize()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="318" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:318</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="show"></a>
+                        <span class="name">
+                            <b>
+                            show
+                            </b>
+                            <a href="#show"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>show()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:130</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggleMaximize"></a>
+                        <span class="name">
+                            <b>
+                            toggleMaximize
+                            </b>
+                            <a href="#toggleMaximize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggleMaximize(event)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="291" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:291</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>event</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="contentzIndex"></a>
+                        <span class="name">
+                            <b>
+                            contentzIndex
+                            </b>
+                            <a href="#contentzIndex"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>contentzIndex:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:41</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dragging"></a>
+                        <span class="name">
+                            <b>
+                            dragging
+                            </b>
+                            <a href="#dragging"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>dragging:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:43</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="executePostDisplayActions"></a>
+                        <span class="name">
+                            <b>
+                            executePostDisplayActions
+                            </b>
+                            <a href="#executePostDisplayActions"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>executePostDisplayActions:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastPageX"></a>
+                        <span class="name">
+                            <b>
+                            lastPageX
+                            </b>
+                            <a href="#lastPageX"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>lastPageX:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lastPageY"></a>
+                        <span class="name">
+                            <b>
+                            lastPageY
+                            </b>
+                            <a href="#lastPageY"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>lastPageY:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maximized"></a>
+                        <span class="name">
+                            <b>
+                            maximized
+                            </b>
+                            <a href="#maximized"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>maximized:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:49</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalBody"></a>
+                        <span class="name">
+                            <b>
+                            modalBody
+                            </b>
+                            <a href="#modalBody"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>modalBody:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalBody&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalFooter"></a>
+                        <span class="name">
+                            <b>
+                            modalFooter
+                            </b>
+                            <a href="#modalFooter"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>modalFooter:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalFooter&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalHeader"></a>
+                        <span class="name">
+                            <b>
+                            modalHeader
+                            </b>
+                            <a href="#modalHeader"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>modalHeader:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalHeader&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:29</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modalRoot"></a>
+                        <span class="name">
+                            <b>
+                            modalRoot
+                            </b>
+                            <a href="#modalRoot"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>modalRoot:     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ViewChild(&#x27;modalRoot&#x27;)<br />
+                            </code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:27</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preMaximizeBodyHeight"></a>
+                        <span class="name">
+                            <b>
+                            preMaximizeBodyHeight
+                            </b>
+                            <a href="#preMaximizeBodyHeight"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>preMaximizeBodyHeight:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:52</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preMaximizePageX"></a>
+                        <span class="name">
+                            <b>
+                            preMaximizePageX
+                            </b>
+                            <a href="#preMaximizePageX"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>preMaximizePageX:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:53</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preMaximizePageY"></a>
+                        <span class="name">
+                            <b>
+                            preMaximizePageY
+                            </b>
+                            <a href="#preMaximizePageY"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>preMaximizePageY:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:54</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preMaximizeRootHeight"></a>
+                        <span class="name">
+                            <b>
+                            preMaximizeRootHeight
+                            </b>
+                            <a href="#preMaximizeRootHeight"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>preMaximizeRootHeight:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:51</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="preMaximizeRootWidth"></a>
+                        <span class="name">
+                            <b>
+                            preMaximizeRootWidth
+                            </b>
+                            <a href="#preMaximizeRootWidth"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>preMaximizeRootWidth:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:50</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resizingE"></a>
+                        <span class="name">
+                            <b>
+                            resizingE
+                            </b>
+                            <a href="#resizingE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resizingE:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resizingS"></a>
+                        <span class="name">
+                            <b>
+                            resizingS
+                            </b>
+                            <a href="#resizingS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resizingS:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="resizingSE"></a>
+                        <span class="name">
+                            <b>
+                            resizingSE
+                            </b>
+                            <a href="#resizingSE"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>resizingSE:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/shared/ng-modal/ng-modal.component.ts:46</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component, ElementRef, ViewChild, Input, Output, OnInit, AfterViewChecked, NgZone,
+  HostListener, HostBinding, EventEmitter
+} from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-modal&#x27;,
+  templateUrl: &#x27;ng-modal.component.html&#x27;,
+  styleUrls: [&#x27;ng-modal.component.scss&#x27;]
+})
+export class NgModalComponent implements OnInit, AfterViewChecked {
+
+  @Input() modalTitle: string;
+  @Input() width: any;
+  @Input() height: any;
+  @Input() zIndex: number;
+  @Input() minWidth &#x3D; 260;
+  @Input() minHeight &#x3D; 200;
+  @Input() scrollTop &#x3D; true;
+  @Input() maximizable: boolean;
+  @Input() backdrop &#x3D; true;
+  @Input() styleClass: string;
+  @Input() visible: boolean;
+
+  @Output() close: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter();
+
+  @ViewChild(&#x27;modalRoot&#x27;) modalRoot: ElementRef;
+  @ViewChild(&#x27;modalBody&#x27;) modalBody: ElementRef;
+  @ViewChild(&#x27;modalHeader&#x27;) modalHeader: ElementRef;
+  @ViewChild(&#x27;modalFooter&#x27;) modalFooter: ElementRef;
+
+  @HostBinding(&#x27;class&#x27;)
+  get cssClass(): string {
+    let cls &#x3D; &#x27;app-modal&#x27;;
+    if (this.styleClass) {
+      cls +&#x3D; &#x27; &#x27; + this.styleClass;
+    }
+    return cls;
+  }
+
+  contentzIndex: number;
+  executePostDisplayActions: boolean;
+  dragging: boolean;
+  resizingS: boolean;
+  resizingE: boolean;
+  resizingSE: boolean;
+  lastPageX: number;
+  lastPageY: number;
+  maximized: boolean;
+  preMaximizeRootWidth: number;
+  preMaximizeRootHeight: number;
+  preMaximizeBodyHeight: number;
+  preMaximizePageX: number;
+  preMaximizePageY: number;
+
+  constructor(private element: ElementRef, private ngZone: NgZone) {
+  }
+
+  ngOnInit() {
+    if (!this.zIndex) {
+      this.zIndex &#x3D; this.getMaxModalIndex() + 1;
+      this.zIndex &#x3D; this.zIndex || 1100;
+    }
+    this.contentzIndex &#x3D; this.zIndex + 1;
+    if (this.visible) {
+      this.show();
+    }
+  }
+
+  ngAfterViewChecked() {
+    if (this.executePostDisplayActions) {
+      this.center();
+      this.executePostDisplayActions &#x3D; false;
+    }
+  }
+
+  addEventListeners() {
+    this.ngZone.runOutsideAngular(() &#x3D;&gt; {
+      window.document.addEventListener(&#x27;mousemove&#x27;, this.onMousemove.bind(this));
+      window.document.addEventListener(&#x27;mouseup&#x27;, this.onMouseup.bind(this));
+      window.addEventListener(&#x27;resize&#x27;, this.onWindowResize.bind(this));
+
+      window.document.addEventListener(&#x27;touchmove&#x27;, this.onTouchmove.bind(this), false);
+      window.document.addEventListener(&#x27;touchend&#x27;, this.onTouchend.bind(this), false);
+    });
+  }
+
+  removeEventListener() {
+    window.document.removeEventListener(&#x27;mousemove&#x27;, this.onMousemove.bind(this));
+    window.document.removeEventListener(&#x27;mouseup&#x27;, this.onMouseup.bind(this));
+    window.removeEventListener(&#x27;resize&#x27;, this.onWindowResize.bind(this));
+
+    window.document.removeEventListener(&#x27;touchmove&#x27;, this.onTouchmove.bind(this));
+    window.document.removeEventListener(&#x27;touchend&#x27;, this.onTouchend.bind(this));
+  }
+
+  @HostListener(&#x27;keydown.esc&#x27;, [&#x27;$event&#x27;])
+  onKeyDown(event): void {
+    event.preventDefault();
+    event.stopPropagation();
+    this.hide();
+  }
+
+  onWindowResize(): void {
+    this.executePostDisplayActions &#x3D; true;
+    this.center();
+  }
+
+  onMousemove(event: MouseEvent): void {
+    this.onDrag(event.pageX, event.pageY);
+    this.onResize(event.pageX, event.pageY);
+  }
+
+  onMouseup(): void {
+    this.endDrag();
+    this.endResize();
+  }
+
+  onTouchmove(event: TouchEvent): void {
+    const touch &#x3D; event.touches[0];
+    this.onDrag(touch.pageX, touch.pageY);
+    this.onResize(touch.pageX, touch.pageY);
+  }
+
+  onTouchend(): void {
+    this.endDrag();
+    this.endResize();
+  }
+
+  show(): void {
+    this.executePostDisplayActions &#x3D; true;
+    this.visible &#x3D; true;
+    setTimeout(() &#x3D;&gt; {
+      this.modalRoot.nativeElement.focus();
+      if (this.scrollTop) {
+        this.modalBody.nativeElement.scrollTop &#x3D; 0;
+      }
+    }, 1);
+    this.addEventListeners();
+  }
+
+  hide(): void {
+    this.visible &#x3D; false;
+    this.close.emit(true);
+    this.focusLastModal();
+    this.removeEventListener();
+  }
+
+  center() {
+    let elementWidth &#x3D; this.modalRoot.nativeElement.offsetWidth;
+    let elementHeight &#x3D; this.modalRoot.nativeElement.offsetHeight;
+
+    if (elementWidth &#x3D;&#x3D;&#x3D; 0 &amp;&amp; elementHeight &#x3D;&#x3D;&#x3D; 0) {
+      this.modalRoot.nativeElement.style.visibility &#x3D; &#x27;hidden&#x27;;
+      this.modalRoot.nativeElement.style.display &#x3D; &#x27;block&#x27;;
+      elementWidth &#x3D; this.modalRoot.nativeElement.offsetWidth;
+      elementHeight &#x3D; this.modalRoot.nativeElement.offsetHeight;
+      this.modalRoot.nativeElement.style.display &#x3D; &#x27;none&#x27;;
+      this.modalRoot.nativeElement.style.visibility &#x3D; &#x27;visible&#x27;;
+    }
+
+    const x &#x3D; Math.max((window.innerWidth - elementWidth) / 2, 0);
+    const y &#x3D; Math.max((window.innerHeight - elementHeight) / 2, 0);
+
+    this.modalRoot.nativeElement.style.left &#x3D; x + &#x27;px&#x27;;
+    this.modalRoot.nativeElement.style.top &#x3D; y + &#x27;px&#x27;;
+  }
+
+  initDrag(pageX: number, pageY: number) {
+    if (!this.maximized) {
+      this.dragging &#x3D; true;
+      this.lastPageX &#x3D; pageX;
+      this.lastPageY &#x3D; pageY;
+      this.modalRoot.nativeElement.classList.add(&#x27;dragging&#x27;);
+    }
+  }
+
+  onDrag(pageX: number, pageY: number) {
+    if (this.dragging) {
+      const deltaX &#x3D; pageX - this.lastPageX;
+      const deltaY &#x3D; pageY - this.lastPageY;
+      const leftPos &#x3D; parseFloat(this.modalRoot.nativeElement.style.left);
+      const topPos &#x3D; parseFloat(this.modalRoot.nativeElement.style.top);
+
+      this.modalRoot.nativeElement.style.left &#x3D; leftPos + deltaX + &#x27;px&#x27;;
+      this.modalRoot.nativeElement.style.top &#x3D; topPos + deltaY + &#x27;px&#x27;;
+
+      this.lastPageX &#x3D; pageX;
+      this.lastPageY &#x3D; pageY;
+    }
+  }
+
+  endDrag() {
+    this.dragging &#x3D; false;
+    this.modalRoot.nativeElement.classList.remove(&#x27;dragging&#x27;);
+  }
+
+  initResizeS(pageX: number, pageY: number) {
+    this.resizingS &#x3D; true;
+    this.lastPageX &#x3D; pageX;
+    this.lastPageY &#x3D; pageY;
+    this.modalRoot.nativeElement.classList.add(&#x27;resizing&#x27;);
+  }
+
+  initResizeE(pageX: number, pageY: number) {
+    this.resizingE &#x3D; true;
+    this.lastPageX &#x3D; pageX;
+    this.lastPageY &#x3D; pageY;
+    this.modalRoot.nativeElement.classList.add(&#x27;resizing&#x27;);
+  }
+
+  initResizeSE(pageX: number, pageY: number) {
+    this.resizingSE &#x3D; true;
+    this.lastPageX &#x3D; pageX;
+    this.lastPageY &#x3D; pageY;
+    this.modalRoot.nativeElement.classList.add(&#x27;resizing&#x27;);
+  }
+
+  onResize(pageX: number, pageY: number) {
+    if (this.resizingS || this.resizingE || this.resizingSE) {
+      const deltaX &#x3D; pageX - this.lastPageX;
+      const deltaY &#x3D; pageY - this.lastPageY;
+      const containerWidth &#x3D; this.modalRoot.nativeElement.offsetWidth;
+      const containerHeight &#x3D; this.modalRoot.nativeElement.offsetHeight;
+      const contentHeight &#x3D; this.modalBody.nativeElement.offsetHeight;
+      const newWidth &#x3D; containerWidth + deltaX;
+      const newHeight &#x3D; containerHeight + deltaY;
+
+      if (this.resizingSE || this.resizingE) {
+        if (newWidth &gt; this.minWidth) {
+          this.modalRoot.nativeElement.style.width &#x3D; newWidth + &#x27;px&#x27;;
+        }
+      }
+
+      if (this.resizingSE || this.resizingS) {
+        if (newHeight &gt; this.minHeight) {
+          this.modalRoot.nativeElement.style.height &#x3D; newHeight + &#x27;px&#x27;;
+          this.modalBody.nativeElement.style.height &#x3D; contentHeight + deltaY + &#x27;px&#x27;;
+          this.modalBody.nativeElement.style.maxHeight &#x3D; &#x27;none&#x27;;
+        }
+      }
+
+      this.lastPageX &#x3D; pageX;
+      this.lastPageY &#x3D; pageY;
+    }
+  }
+
+  endResize() {
+    this.resizingS &#x3D; false;
+    this.resizingE &#x3D; false;
+    this.resizingSE &#x3D; false;
+    this.modalRoot.nativeElement.classList.remove(&#x27;resizing&#x27;);
+  }
+
+  calcBodyHeight() {
+    const windowHeight &#x3D; window.innerHeight;
+    if (this.modalRoot.nativeElement.offsetWidth &gt; windowHeight) {
+      this.modalBody.nativeElement.style.height &#x3D; (windowHeight * .75) + &#x27;px&#x27;;
+    }
+  }
+
+  getMaxModalIndex() {
+    let zIndex &#x3D; 0;
+    const modals &#x3D; document.querySelectorAll(&#x27;.ui-modal&#x27;);
+    [].forEach.call(modals, function (modal) {
+      const indexCurrent &#x3D; parseInt(modal.style.zIndex, 10);
+      if (indexCurrent &gt; zIndex) {
+        zIndex &#x3D; indexCurrent;
+      }
+    });
+    return zIndex;
+  }
+
+  focusLastModal() {
+    const modal &#x3D; this.findAncestor(this.element.nativeElement, &#x27;app-modal&#x27;);
+    if (modal &amp;&amp; modal.children[1]) {
+      modal.children[1].focus();
+    }
+  }
+
+  findAncestor(el, cls) {
+    while ((el &#x3D; el.parentElement) &amp;&amp; !el.classList.contains(cls)) {
+    }
+    return el;
+  }
+
+  onCloseIcon(event: Event) {
+    event.stopPropagation();
+  }
+
+  toggleMaximize(event) {
+    if (this.maximized) {
+      this.revertMaximize();
+    } else {
+      this.maximize();
+    }
+    event.preventDefault();
+  }
+
+  maximize() {
+    this.preMaximizePageX &#x3D; parseFloat(this.modalRoot.nativeElement.style.top);
+    this.preMaximizePageY &#x3D; parseFloat(this.modalRoot.nativeElement.style.left);
+    this.preMaximizeRootWidth &#x3D; this.modalRoot.nativeElement.offsetWidth;
+    this.preMaximizeRootHeight &#x3D; this.modalRoot.nativeElement.offsetHeight;
+    this.preMaximizeBodyHeight &#x3D; this.modalBody.nativeElement.offsetHeight;
+
+    this.modalRoot.nativeElement.style.top &#x3D; &#x27;0px&#x27;;
+    this.modalRoot.nativeElement.style.left &#x3D; &#x27;0px&#x27;;
+    this.modalRoot.nativeElement.style.width &#x3D; &#x27;100vw&#x27;;
+    this.modalRoot.nativeElement.style.height &#x3D; &#x27;100vh&#x27;;
+    const diffHeight &#x3D; this.modalHeader.nativeElement.offsetHeight + this.modalFooter.nativeElement.offsetHeight * 2;
+    this.modalBody.nativeElement.style.height &#x3D; &#x27;calc(100vh - &#x27; + diffHeight + &#x27;px)&#x27;;
+    this.modalBody.nativeElement.style.maxHeight &#x3D; &#x27;none&#x27;;
+
+    this.maximized &#x3D; true;
+  }
+
+  revertMaximize() {
+    this.modalRoot.nativeElement.style.top &#x3D; this.preMaximizePageX + &#x27;px&#x27;;
+    this.modalRoot.nativeElement.style.left &#x3D; this.preMaximizePageY + &#x27;px&#x27;;
+    this.modalRoot.nativeElement.style.width &#x3D; this.preMaximizeRootWidth + &#x27;px&#x27;;
+    this.modalRoot.nativeElement.style.height &#x3D; this.preMaximizeRootHeight + &#x27;px&#x27;;
+    this.modalBody.nativeElement.style.height &#x3D; this.preMaximizeBodyHeight + &#x27;px&#x27;;
+
+    this.maximized &#x3D; false;
+  }
+
+  moveOnTop() {
+    if (!this.backdrop) {
+      const zIndex &#x3D; this.getMaxModalIndex();
+      if (this.contentzIndex &lt;&#x3D; zIndex) {
+        this.contentzIndex &#x3D; zIndex + 1;
+      }
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;ui-modal-overlay&quot;
+     [style.zIndex]&#x3D;&quot;zIndex&quot;
+     [ngStyle]&#x3D;&quot;{&#x27;display&#x27;: (visible &amp;&amp; backdrop) ? &#x27;block&#x27; : &#x27;none&#x27;}&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;ui-modal&quot; tabindex&#x3D;&quot;-1&quot; role&#x3D;&quot;dialog&quot;
+     #modalRoot
+     [ngStyle]&#x3D;&quot;{&#x27;display&#x27;: visible ? &#x27;block&#x27; : &#x27;none&#x27;}&quot;
+     [style.width.px]&#x3D;&quot;width&quot;
+     [style.minWidth.px]&#x3D;&quot;minWidth&quot;
+     [style.zIndex]&#x3D;&quot;contentzIndex&quot;
+     (mousedown)&#x3D;&quot;moveOnTop()&quot;
+     (touchstart)&#x3D;&quot;moveOnTop()&quot;&gt;
+  &lt;div class&#x3D;&quot;ui-modal-header&quot; #modalHeader
+       (mousedown)&#x3D;&quot;initDrag($event.pageX, $event.pageY)&quot;
+       (touchstart)&#x3D;&quot;initDrag($event.touches[0].pageX, $event.touches[0].pageY)&quot;&gt;
+    &lt;div (dblclick)&#x3D;&quot;toggleMaximize($event)&quot; class&#x3D;&quot;ui-titlebar&quot;&gt;
+      &lt;span class&#x3D;&quot;ui-modal-title&quot; *ngIf&#x3D;&quot;modalTitle&quot;&gt;{{modalTitle}}&lt;/span&gt;
+      &lt;ng-content select&#x3D;&quot;.app-modal-header&quot;&gt;&lt;/ng-content&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;ui-controlbar&quot;&gt;
+          &lt;span *ngIf&#x3D;&quot;maximizable&quot; (click)&#x3D;&quot;toggleMaximize($event)&quot;&gt;
+              &lt;span class&#x3D;&quot;window-icon&quot; *ngIf&#x3D;&quot;!maximized&quot;&gt;
+                &lt;i class&#x3D;&quot;far fa-window-maximize&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+              &lt;span class&#x3D;&quot;window-icon&quot; *ngIf&#x3D;&quot;maximized&quot;&gt;
+                &lt;i class&#x3D;&quot;far fa-window-restore&quot;&gt;&lt;/i&gt;
+              &lt;/span&gt;
+          &lt;/span&gt;
+      &lt;span class&#x3D;&quot;window-icon&quot; (click)&#x3D;&quot;hide()&quot;
+            (mousedown)&#x3D;&quot;onCloseIcon($event)&quot;
+            (touchstart)&#x3D;&quot;onCloseIcon($event)&quot;&gt;
+            &lt;i class&#x3D;&quot;fas fa-times&quot;&gt;&lt;/i&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;ng-content select&#x3D;&quot;.app-modal-toolbar&quot;&gt;&lt;/ng-content&gt;
+
+  &lt;div class&#x3D;&quot;ui-modal-body&quot; #modalBody&gt;
+
+    &lt;ng-content select&#x3D;&quot;.app-modal-body&quot;&gt;&lt;/ng-content&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;ui-modal-footer&quot; #modalFooter&gt;
+    &lt;ng-content select&#x3D;&quot;.app-modal-footer&quot;&gt;&lt;/ng-content&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;ui-resizable-s&quot;
+       *ngIf&#x3D;&quot;!maximized&quot;
+       [style.zIndex]&#x3D;&quot;contentzIndex&quot;
+       (mousedown)&#x3D;&quot;initResizeS($event.pageX, $event.pageY)&quot;
+       (touchstart)&#x3D;&quot;initResizeS($event.touches[0].pageX, $event.touches[0].pageY)&quot;&gt;&lt;/div&gt;
+  &lt;div class&#x3D;&quot;ui-resizable-e&quot;
+       *ngIf&#x3D;&quot;!maximized&quot;
+       [style.zIndex]&#x3D;&quot;contentzIndex&quot;
+       (mousedown)&#x3D;&quot;initResizeE($event.pageX, $event.pageY)&quot;
+       (touchstart)&#x3D;&quot;initResizeE($event.touches[0].pageX, $event.touches[0].pageY)&quot;&gt;&lt;/div&gt;
+  &lt;div class&#x3D;&quot;ui-resizable-se&quot;
+       *ngIf&#x3D;&quot;!maximized&quot;
+       [style.zIndex]&#x3D;&quot;contentzIndex&quot;
+       (mousedown)&#x3D;&quot;initResizeSE($event.pageX, $event.pageY)&quot;
+       (touchstart)&#x3D;&quot;initResizeSE($event.touches[0].pageX, $event.touches[0].pageY)&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>ng-modal.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../scss-mixins/utils&quot;;
+@import &quot;../../theme/variables&quot;;
+
+.window-icon {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.ui-modal-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ui-modal {
+  border-radius: 5px;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  max-width: 100%;
+  outline: none;
+  background: $window-background;
+  padding: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.ui-modal-header {
+  @include border-top-radius(5px);
+  position: relative;
+  padding: 2px 16px;
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 48px;
+  color: $text-color;
+  background: white;
+}
+
+.ui-modal-body {
+  position: relative;
+  max-height: 25vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: $window-background;
+}
+
+.ui-modal-footer {
+  padding: 15px;
+  background: $window-background;
+  @include border-bottom-radius(5px);
+}
+
+.ui-titlebar {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  height: 100%;
+  overflow: hidden;
+}
+
+.ui-modal-title {
+  font-size: 18px;
+}
+
+.ui-controlbar {
+  display: flex;
+  align-items: center;
+}
+
+.ui-icon {
+  cursor: pointer;
+  padding-top: 9px;
+}
+
+.ui-icon:hover {
+  opacity: 0.75;
+}
+
+.dragging {
+  cursor: move;
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: 0 4px 8px rgba(102,175,233,.6), 0 6px 20px rgba(0,0,0,.2);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.resizing {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.ui-resizable-se {
+  position:absolute;
+  cursor: se-resize;
+  height: 15px;
+  width: 15px;
+  right: 0;
+  bottom: 0;
+}
+
+.ui-resizable-e {
+  position:absolute;
+  cursor: e-resize;
+  height: 100%;
+  width: 20px;
+  right: -5px;
+  top: 0;
+}
+
+.ui-resizable-s {
+  position:absolute;
+  cursor: s-resize;
+  height: 20px;
+  width: 100%;
+  bottom: -5px;
+  left: 0;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="ui-modal-overlay"     [style.zIndex]="zIndex"     [ngStyle]="{\'display\': (visible && backdrop) ? \'block\' : \'none\'}"></div><div class="ui-modal" tabindex="-1" role="dialog"     #modalRoot     [ngStyle]="{\'display\': visible ? \'block\' : \'none\'}"     [style.width.px]="width"     [style.minWidth.px]="minWidth"     [style.zIndex]="contentzIndex"     (mousedown)="moveOnTop()"     (touchstart)="moveOnTop()">  <div class="ui-modal-header" #modalHeader       (mousedown)="initDrag($event.pageX, $event.pageY)"       (touchstart)="initDrag($event.touches[0].pageX, $event.touches[0].pageY)">    <div (dblclick)="toggleMaximize($event)" class="ui-titlebar">      <span class="ui-modal-title" *ngIf="modalTitle">{{modalTitle}}</span>      <ng-content select=".app-modal-header"></ng-content>    </div>    <div class="ui-controlbar">          <span *ngIf="maximizable" (click)="toggleMaximize($event)">              <span class="window-icon" *ngIf="!maximized">                <i class="far fa-window-maximize"></i>              </span>              <span class="window-icon" *ngIf="maximized">                <i class="far fa-window-restore"></i>              </span>          </span>      <span class="window-icon" (click)="hide()"            (mousedown)="onCloseIcon($event)"            (touchstart)="onCloseIcon($event)">            <i class="fas fa-times"></i>      </span>    </div>  </div>  <ng-content select=".app-modal-toolbar"></ng-content>  <div class="ui-modal-body" #modalBody>    <ng-content select=".app-modal-body"></ng-content>  </div>  <div class="ui-modal-footer" #modalFooter>    <ng-content select=".app-modal-footer"></ng-content>  </div>  <div class="ui-resizable-s"       *ngIf="!maximized"       [style.zIndex]="contentzIndex"       (mousedown)="initResizeS($event.pageX, $event.pageY)"       (touchstart)="initResizeS($event.touches[0].pageX, $event.touches[0].pageY)"></div>  <div class="ui-resizable-e"       *ngIf="!maximized"       [style.zIndex]="contentzIndex"       (mousedown)="initResizeE($event.pageX, $event.pageY)"       (touchstart)="initResizeE($event.touches[0].pageX, $event.touches[0].pageY)"></div>  <div class="ui-resizable-se"       *ngIf="!maximized"       [style.zIndex]="contentzIndex"       (mousedown)="initResizeSE($event.pageX, $event.pageY)"       (touchstart)="initResizeSE($event.touches[0].pageX, $event.touches[0].pageY)"></div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BreadcrumbsComponent', 'selector': 'app-breadcrumbs'},{'name': 'EmptyFolderComponent', 'selector': 'app-empty-folder'},{'name': 'ExplorerComponent', 'selector': 'app-explorer'},{'name': 'FileGridComponent', 'selector': 'app-file-grid'},{'name': 'GridItemComponent', 'selector': 'app-grid-item'},{'name': 'NgModalComponent', 'selector': 'app-modal'},{'name': 'WindowComponent', 'selector': 'app-window'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'NgModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'NgModalComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

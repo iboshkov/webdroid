@@ -18,16 +18,13 @@ import org.zeroturnaround.zip.commons.IOUtils
 import tech.boshkov.webdroid.server.NanoFileUpload
 import tech.boshkov.webdroid.server.WebServer
 import tech.boshkov.webdroid.server.annotations.RequestHandler
-import tech.boshkov.webdroid.server.interfaces.WebApplication
+import tech.boshkov.webdroid.server.interfaces.Controller
 import java.io.File
 import java.io.FileInputStream
 import java.io.FileOutputStream
 import java.io.IOException
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
-import me.everything.providers.android.telephony.Conversation;
-import me.everything.providers.android.telephony.TelephonyProvider;
-import me.everything.providers.core.Data;
 import tech.boshkov.webdroid.server.UrlMatch
 
 
@@ -51,10 +48,8 @@ class MkdirPayload {
     var name: String = ""
 }
 
-/**
- * Created by iboshkov on 5/17/2017.
- */
-class RESTApp(private val mContext: Context, private val server: WebServer):  WebApplication {
+
+class FileSystemController(private val mContext: Context, private val server: WebServer): Controller {
     internal lateinit var batteryStatus: Intent
     internal var uploadStatus = jsonObject()
 
@@ -316,7 +311,7 @@ class RESTApp(private val mContext: Context, private val server: WebServer):  We
                         "base_os" to android.os.Build.VERSION.BASE_OS,
                         "release" to android.os.Build.VERSION.RELEASE,
                         "incremental" to android.os.Build.VERSION.INCREMENTAL,
-                        "codename" to android.os.Build.VERSION.CODENAME
+                        "codename" to android.os.Build.VERSION.CODENAME 
                 )
         )
         var response = NanoHTTPD.newFixedLengthResponse(obj.toString())

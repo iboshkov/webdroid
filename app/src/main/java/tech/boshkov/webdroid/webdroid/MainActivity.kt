@@ -9,14 +9,14 @@ import android.os.Bundle
 import tech.boshkov.webdroid.server.*
 import android.content.pm.PackageManager
 import kotlinx.android.synthetic.main.activity_main.*
-import tech.boshkov.webdroid.webdroid.REST.RESTApp
+import tech.boshkov.webdroid.webdroid.REST.FileSystemController
 import tech.boshkov.webdroid.webdroid.REST.SMSController
 import java.io.*
 
 
 class MainActivity : AppCompatActivity() {
     internal lateinit var mServer: WebServer
-    internal lateinit var mRest: RESTApp
+    internal lateinit var mRest: FileSystemController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     fun init() {
         try {
             mServer = WebServer(this, 3000)
-            mRest = RESTApp(this, mServer)
+            mRest = FileSystemController(this, mServer)
             mServer.registerApplication(mRest)
             mServer.registerApplication(SMSController(this, mServer))
             mServer.start()

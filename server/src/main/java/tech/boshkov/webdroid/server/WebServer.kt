@@ -12,7 +12,7 @@ import java.net.URLEncoder
 import fi.iki.elonen.WebServerPlugin
 import fi.iki.elonen.WebServerPluginInfo
 import tech.boshkov.webdroid.server.annotations.RequestHandler
-import tech.boshkov.webdroid.server.interfaces.WebApplication
+import tech.boshkov.webdroid.server.interfaces.Controller
 import java.io.*
 import java.util.*
 
@@ -22,12 +22,12 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
 
 
     private val mServerSocket: ServerSocket? = null
-    private val mApplications: ArrayList<WebApplication>
+    private val mApplications: ArrayList<Controller>
     private val mAssetMgr: AssetManager
 
     init {
         mAssetMgr = mContext.assets
-        this.mApplications = ArrayList<WebApplication>()
+        this.mApplications = ArrayList<Controller>()
     }
 
     class Response(status: NanoHTTPD.Response.IStatus, mime: String, data: InputStream, length: Long) : NanoHTTPD.Response(status, mime, data, length) {
@@ -255,7 +255,7 @@ constructor(private val mContext: Context, val port: Int) : NanoHTTPD(port), Run
 
     }
 
-    fun registerApplication(app: WebApplication) {
+    fun registerApplication(app: Controller) {
         this.mApplications.add(app)
     }
 
