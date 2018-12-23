@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ExplorerModule} from './explorer/explorer.module';
 import {ButtonModule, CoreModule, InputModule, ModalModule} from 'truly-ui';
 import {HttpClientModule} from '@angular/common/http';
+import { PhoneStatusModule } from './phone-status/phone-status.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     CoreModule.forRoot({theme: 'default'}),
     ExplorerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    PhoneStatusModule
   ],
   providers: [],
   bootstrap: [AppComponent]

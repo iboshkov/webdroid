@@ -1,0 +1,23 @@
+<div class="phone-status-widget pt-dark">
+  <h3>{{ info.brand.toUpperCase() }} {{ info.model }}</h3>
+  <div class="phone-image">
+      <img height="300px" src="https://s-media-cache-ak0.pinimg.com/originals/e7/60/31/e7603155e2f8ecb715e9b62fa59deb1f.jpg" />
+  </div>
+  <div class="phone-details">
+      <table class="pt-table .modifier">
+          <tbody>
+              <tr>
+                  <td>Battery {{percent}} %, {{ chargeMessage }}</td>
+              </tr>
+              <tr>
+                  <td colSpan="2">
+                      <p-progressBar [class]="statusClass" [value]="percent" [mode]="loading ? 'indeterminate' : 'determinate'"></p-progressBar>
+                  </td>
+              </tr>
+              <tr>
+                  <td>Android {{info.os.release}}</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

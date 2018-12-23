@@ -1,0 +1,45 @@
+
+.phone-status-widget {
+    width: 400px;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 15px;
+    padding: 10px;
+    position: absolute;
+    right: 25px;
+    top: 100px;
+    display: block;
+    color: white;
+}
+
+.phone-image {
+    position: absolute;
+    pointer-events: none;
+    left: -80px
+}
+
+.phone-details {
+  position: relative;
+  left: 100px;
+}
+
+.phone-details table {
+  width: 270px !important;
+}
+
+
+.ui-progressbar .ui-progressbar-value {
+    transition: 0.3s;
+}
+
+.danger .ui-progressbar .ui-progressbar-value {
+    background: #e53935;
+}
+
+.warning .ui-progressbar .ui-progressbar-value {
+    background: #FBC02D;
+}
+
+.success .ui-progressbar .ui-progressbar-value {
+    background: #43A047;
+}
